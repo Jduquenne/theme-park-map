@@ -1,0 +1,11 @@
+[
+  {
+    "id": "prk-aurora-gardens",
+    "slug": "aurora-gardens",
+    "name": "Aurora Gardens",
+    "resort": "Northbridge Resort",
+    "location": { "city": "Northbridge", "country": "Canada" },
+    "mappedPeriod": { "from": 1976, "to": null },
+    "mapCount": 2
+  }
+]

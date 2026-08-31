@@ -1,4 +1,4 @@
-import { PoiCategory } from '../../core/models';
+import { PoiCategory } from '../../../core/models';
 
 export const POI_COLOR: Record<PoiCategory, string> = {
   attraction: '#2563eb',

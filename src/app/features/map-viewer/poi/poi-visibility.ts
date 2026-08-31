@@ -1,4 +1,4 @@
-import { YearRange } from '../../core/models';
+import { YearRange } from '../../../core/models';
 
 export function isActiveInYear(operating: YearRange | null, year: number): boolean {
   if (!operating) {

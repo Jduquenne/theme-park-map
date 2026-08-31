@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { PoiCategory } from '../../../core/models';
-import { POI_COLOR, POI_LABEL } from '../poi-style';
+import { POI_COLOR, POI_LABEL } from './poi-style';
 
 export interface PoiLegendEntry {
   category: PoiCategory;

@@ -12,14 +12,14 @@ import {
   stringParam,
 } from '../../shared/router/query-params-state';
 import { Skeleton } from '../../shared/components/skeleton';
-import { LeafletMap } from './components/leaflet-map';
-import { MapSwitcher } from './components/map-switcher';
-import { PoiDetail } from './components/poi-detail';
-import { PoiLegendEntry } from './components/poi-legend';
-import { PoiList } from './components/poi-list';
-import { YearScrubber } from './components/year-scrubber';
-import { POI_LABEL } from './poi-style';
-import { isActiveInYear, resolveOpenEnd } from './poi-visibility';
+import { LeafletMap } from './leaflet-map';
+import { MapSwitcher } from './map-switcher';
+import { YearScrubber } from './year-scrubber';
+import { PoiDetail } from './poi/poi-detail';
+import { PoiLegendEntry } from './poi/poi-legend';
+import { PoiList } from './poi/poi-list';
+import { POI_LABEL } from './poi/poi-style';
+import { isActiveInYear, resolveOpenEnd } from './poi/poi-visibility';
 
 const CURRENT_YEAR = new Date().getFullYear();
 

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { PointOfInterest } from '../../../core/models';
-import { POI_COLOR, POI_LABEL } from '../poi-style';
+import { POI_COLOR, POI_LABEL } from './poi-style';
 
 @Component({
   selector: 'app-poi-detail',

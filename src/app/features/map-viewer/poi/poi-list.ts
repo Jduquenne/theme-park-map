@@ -8,7 +8,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { PoiCategory, PointOfInterest } from '../../../core/models';
-import { POI_COLOR, POI_LABEL } from '../poi-style';
+import { POI_COLOR, POI_LABEL } from './poi-style';
 import { PoiLegend, PoiLegendEntry } from './poi-legend';
 
 @Component({

@@ -21,9 +21,9 @@ import {
   layerGroup,
   map as createMap,
 } from 'leaflet';
-import { MapImage, PointOfInterest } from '../../../core/models';
-import { imageBounds, imagePointToLatLng } from '../image-coordinates';
-import { POI_COLOR } from '../poi-style';
+import { MapImage, PointOfInterest } from '../../core/models';
+import { imageBounds, imagePointToLatLng } from './image-coordinates';
+import { POI_COLOR } from './poi/poi-style';
 
 @Component({
   selector: 'app-leaflet-map',

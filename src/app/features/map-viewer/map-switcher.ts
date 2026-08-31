@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
-import { HistoricalMap } from '../../../core/models';
+import { HistoricalMap } from '../../core/models';
 
 @Component({
   selector: 'app-map-switcher',

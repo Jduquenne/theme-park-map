@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
-import { toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { switchMap } from 'rxjs';
+import { ChangeDetectionStrategy, Component, computed, inject, input, linkedSignal } from '@angular/core';
+import { takeUntilDestroyed, toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { debounceTime, switchMap } from 'rxjs';
 import { HistoricalMap, Park, PoiCategory, PointOfInterest } from '../../core/models';
 import { ParkRepository } from '../../core/services/park-repository';
 import { RequestState, toRequestState } from '../../shared/http/request-state';
@@ -21,6 +22,8 @@ const CURRENT_YEAR = new Date().getFullYear();
 })
 export class MapViewer {
   private readonly repository = inject(ParkRepository);
+  private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
 
   readonly slug = input.required<string>();
 
@@ -31,6 +34,10 @@ export class MapViewer {
     { initialValue: { status: 'loading' } as RequestState<Park> },
   );
 
+  private readonly queryParams = toSignal(this.route.queryParamMap, {
+    initialValue: this.route.snapshot.queryParamMap,
+  });
+
   readonly status = computed(() => this.request().status);
 
   readonly park = computed<Park | null>(() => {
@@ -40,10 +47,16 @@ export class MapViewer {
 
   readonly maps = computed(() => this.park()?.maps ?? []);
 
-  readonly selectedMapId = signal<string | null>(null);
-  readonly selectedPoiId = signal<string | null>(null);
-  readonly year = signal<number | null>(null);
-  readonly hiddenCategories = signal<ReadonlySet<PoiCategory>>(new Set());
+  readonly selectedMapId = linkedSignal(() => this.queryParams().get('map'));
+  readonly selectedPoiId = linkedSignal(() => this.queryParams().get('poi'));
+  readonly year = linkedSignal(() => {
+    const raw = this.queryParams().get('year');
+    return raw === null ? null : Number(raw);
+  });
+  readonly hiddenCategories = linkedSignal<ReadonlySet<PoiCategory>>(() => {
+    const raw = this.queryParams().get('hide');
+    return new Set((raw ? raw.split(',') : []) as PoiCategory[]);
+  });
 
   readonly selectedMap = computed<HistoricalMap | null>(() => {
     const maps = this.maps();
@@ -95,6 +108,29 @@ export class MapViewer {
     const id = this.selectedPoiId();
     return id === null ? null : (this.visiblePois().find((poi) => poi.id === id) ?? null);
   });
+
+  private readonly urlState = computed<Params>(() => {
+    const hidden = [...this.hiddenCategories()];
+    return {
+      map: this.selectedMapId(),
+      year: this.year(),
+      poi: this.selectedPoiId(),
+      hide: hidden.length ? hidden.join(',') : null,
+    };
+  });
+
+  constructor() {
+    toObservable(this.urlState)
+      .pipe(debounceTime(150), takeUntilDestroyed())
+      .subscribe((queryParams) =>
+        this.router.navigate([], {
+          relativeTo: this.route,
+          queryParams,
+          queryParamsHandling: 'merge',
+          replaceUrl: true,
+        }),
+      );
+  }
 
   selectMap(id: string): void {
     this.selectedMapId.set(id);

@@ -5,6 +5,7 @@ import { HistoricalMap, Park, PoiCategory, PointOfInterest } from '../../core/mo
 import { ParkRepository } from '../../core/services/park-repository';
 import { RequestState, toRequestState } from '../../shared/http/request-state';
 import { LeafletMap } from './components/leaflet-map';
+import { PoiDetail } from './components/poi-detail';
 import { PoiLegend, PoiLegendEntry } from './components/poi-legend';
 import { POI_LABEL } from './poi-style';
 import { isActiveInYear, resolveOpenEnd } from './poi-visibility';
@@ -15,7 +16,7 @@ const CURRENT_YEAR = new Date().getFullYear();
   selector: 'app-map-viewer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'flex min-h-0 flex-1 flex-col' },
-  imports: [LeafletMap, PoiLegend],
+  imports: [LeafletMap, PoiLegend, PoiDetail],
   templateUrl: './map-viewer.html',
 })
 export class MapViewer {
@@ -40,6 +41,7 @@ export class MapViewer {
   readonly maps = computed(() => this.park()?.maps ?? []);
 
   readonly selectedMapId = signal<string | null>(null);
+  readonly selectedPoiId = signal<string | null>(null);
   readonly year = signal<number | null>(null);
   readonly hiddenCategories = signal<ReadonlySet<PoiCategory>>(new Set());
 
@@ -89,9 +91,23 @@ export class MapViewer {
     return this.datedPois().filter((poi) => !hidden.has(poi.category));
   });
 
+  readonly selectedPoi = computed<PointOfInterest | null>(() => {
+    const id = this.selectedPoiId();
+    return id === null ? null : (this.visiblePois().find((poi) => poi.id === id) ?? null);
+  });
+
   selectMap(id: string): void {
     this.selectedMapId.set(id);
+    this.selectedPoiId.set(null);
     this.year.set(null);
+  }
+
+  pickPoi(id: string): void {
+    this.selectedPoiId.update((current) => (current === id ? null : id));
+  }
+
+  clearPoi(): void {
+    this.selectedPoiId.set(null);
   }
 
   scrubYear(event: Event): void {

@@ -25,25 +25,33 @@
     }
   </header>
 
-  <div class="relative min-h-0 flex-1">
-    @if (selectedMap(); as current) {
-      @defer (on immediate) {
-        <app-leaflet-map
-          class="absolute inset-0"
-          [image]="current.image"
-          [pointsOfInterest]="visiblePois()"
-        />
-      } @placeholder {
-        <div class="absolute inset-0 animate-pulse bg-slate-100"></div>
-      }
+  <div class="flex min-h-0 flex-1">
+    <div class="relative min-h-0 flex-1">
+      @if (selectedMap(); as current) {
+        @defer (on immediate) {
+          <app-leaflet-map
+            class="absolute inset-0"
+            [image]="current.image"
+            [pointsOfInterest]="visiblePois()"
+            [selectedPoiId]="selectedPoiId()"
+            (poiPicked)="pickPoi($event)"
+          />
+        } @placeholder {
+          <div class="absolute inset-0 animate-pulse bg-slate-100"></div>
+        }
 
-      <app-poi-legend
-        class="absolute right-3 top-3 z-[1000] max-w-44"
-        [entries]="legendEntries()"
-        (toggle)="toggleCategory($event)"
-      />
-    } @else {
-      <p class="p-6 text-sm text-slate-500">No historical map recorded for this park yet.</p>
+        <app-poi-legend
+          class="absolute right-3 top-3 z-[1000] max-w-44"
+          [entries]="legendEntries()"
+          (toggle)="toggleCategory($event)"
+        />
+      } @else {
+        <p class="p-6 text-sm text-slate-500">No historical map recorded for this park yet.</p>
+      }
+    </div>
+
+    @if (selectedPoi(); as poi) {
+      <app-poi-detail [poi]="poi" (closed)="clearPoi()" />
     }
   </div>
 

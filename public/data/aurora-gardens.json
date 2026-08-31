@@ -11,7 +11,7 @@
       "id": "map-aurora-1976",
       "title": "Opening Season",
       "period": { "from": 1976, "to": 1984 },
-      "image": { "path": "maps/aurora-gardens/1976.jpg", "width": 2000, "height": 1400 },
+      "image": { "path": "maps/aurora-gardens/1976.svg", "width": 2000, "height": 1400 },
       "source": null,
       "pointsOfInterest": [
         {
@@ -44,7 +44,7 @@
       "id": "map-aurora-1990",
       "title": "The Expansion Years",
       "period": { "from": 1985, "to": null },
-      "image": { "path": "maps/aurora-gardens/1990.jpg", "width": 2400, "height": 1600 },
+      "image": { "path": "maps/aurora-gardens/1990.svg", "width": 2400, "height": 1600 },
       "source": null,
       "pointsOfInterest": [
         {

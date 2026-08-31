@@ -1,0 +1,67 @@
+@if (park(); as park) {
+  <header class="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-slate-200 px-6 py-3">
+    <div>
+      <h2 class="text-base font-semibold">{{ park.name }}</h2>
+      <p class="text-xs text-slate-500">{{ park.location.city }}, {{ park.location.country }}</p>
+    </div>
+
+    @if (maps().length > 1) {
+      <nav class="flex gap-1">
+        @for (entry of maps(); track entry.id) {
+          <button
+            type="button"
+            (click)="selectMap(entry.id)"
+            class="rounded px-3 py-1 text-xs font-medium transition-colors"
+            [class]="
+              entry.id === selectedMap()?.id
+                ? 'bg-slate-900 text-white'
+                : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+            "
+          >
+            {{ entry.title }}
+          </button>
+        }
+      </nav>
+    }
+  </header>
+
+  <div class="relative min-h-0 flex-1">
+    @if (selectedMap(); as current) {
+      @defer (on immediate) {
+        <app-leaflet-map
+          class="absolute inset-0"
+          [image]="current.image"
+          [pointsOfInterest]="visiblePois()"
+        />
+      } @placeholder {
+        <div class="absolute inset-0 animate-pulse bg-slate-100"></div>
+      }
+    } @else {
+      <p class="p-6 text-sm text-slate-500">No historical map recorded for this park yet.</p>
+    }
+  </div>
+
+  @if (timeline(); as range) {
+    <footer class="flex items-center gap-4 border-t border-slate-200 px-6 py-3">
+      <span class="w-12 text-xs tabular-nums text-slate-500">{{ range.from }}</span>
+      <input
+        type="range"
+        class="flex-1 accent-slate-900"
+        [min]="range.from"
+        [max]="range.to"
+        [value]="activeYear()"
+        (input)="scrubYear($event)"
+      />
+      <span class="w-12 text-right text-xs tabular-nums text-slate-500">{{ range.to }}</span>
+      <span
+        class="w-16 rounded bg-slate-900 px-2 py-1 text-center text-xs font-semibold tabular-nums text-white"
+      >
+        {{ activeYear() }}
+      </span>
+    </footer>
+  }
+} @else if (status() === 'error') {
+  <p class="p-6 text-sm text-red-600">This park archive could not be loaded.</p>
+} @else {
+  <p class="p-6 text-sm text-slate-500">Loading archive…</p>
+}

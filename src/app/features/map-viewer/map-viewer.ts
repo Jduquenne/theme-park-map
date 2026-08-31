@@ -1,10 +1,19 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, linkedSignal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+  linkedSignal,
+  signal,
+} from '@angular/core';
 import { takeUntilDestroyed, toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { debounceTime, switchMap } from 'rxjs';
+import { combineLatest, debounceTime, switchMap } from 'rxjs';
 import { HistoricalMap, Park, PoiCategory, PointOfInterest } from '../../core/models';
 import { ParkRepository } from '../../core/services/park-repository';
 import { RequestState, toRequestState } from '../../shared/http/request-state';
+import { Skeleton } from '../../shared/components/skeleton';
 import { LeafletMap } from './components/leaflet-map';
 import { PoiDetail } from './components/poi-detail';
 import { PoiLegend, PoiLegendEntry } from './components/poi-legend';
@@ -17,7 +26,7 @@ const CURRENT_YEAR = new Date().getFullYear();
   selector: 'app-map-viewer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'flex min-h-0 flex-1 flex-col' },
-  imports: [LeafletMap, PoiLegend, PoiDetail],
+  imports: [LeafletMap, PoiLegend, PoiDetail, Skeleton],
   templateUrl: './map-viewer.html',
 })
 export class MapViewer {
@@ -27,9 +36,11 @@ export class MapViewer {
 
   readonly slug = input.required<string>();
 
+  private readonly reload = signal(0);
+
   private readonly request = toSignal(
-    toObservable(this.slug).pipe(
-      switchMap((slug) => toRequestState(this.repository.loadPark(slug))),
+    combineLatest([toObservable(this.slug), toObservable(this.reload)]).pipe(
+      switchMap(([slug]) => toRequestState(this.repository.loadPark(slug))),
     ),
     { initialValue: { status: 'loading' } as RequestState<Park> },
   );
@@ -130,6 +141,10 @@ export class MapViewer {
           replaceUrl: true,
         }),
       );
+  }
+
+  retry(): void {
+    this.reload.update((n) => n + 1);
   }
 
   selectMap(id: string): void {

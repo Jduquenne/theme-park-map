@@ -7,6 +7,8 @@
         <button
           type="button"
           (click)="toggle.emit(entry.category)"
+          [attr.aria-pressed]="!entry.hidden"
+          [attr.aria-label]="'Toggle ' + label[entry.category] + ' markers'"
           class="flex w-full items-center gap-2 rounded px-2 py-1 text-left text-xs hover:bg-slate-100"
           [class.opacity-40]="entry.hidden"
         >

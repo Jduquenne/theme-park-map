@@ -6,11 +6,12 @@
     </div>
 
     @if (maps().length > 1) {
-      <nav class="flex gap-1">
+      <nav class="flex gap-1" aria-label="Historical map">
         @for (entry of maps(); track entry.id) {
           <button
             type="button"
             (click)="selectMap(entry.id)"
+            [attr.aria-pressed]="entry.id === selectedMap()?.id"
             class="rounded px-3 py-1 text-xs font-medium transition-colors"
             [class]="
               entry.id === selectedMap()?.id
@@ -26,7 +27,7 @@
   </header>
 
   <div class="flex min-h-0 flex-1">
-    <div class="relative min-h-0 flex-1">
+    <div class="relative min-h-0 flex-1" role="region" aria-label="Historical park map">
       @if (selectedMap(); as current) {
         @defer (on immediate) {
           <app-leaflet-map
@@ -61,9 +62,11 @@
       <input
         type="range"
         class="flex-1 accent-slate-900"
+        aria-label="Year"
         [min]="range.from"
         [max]="range.to"
         [value]="activeYear()"
+        [attr.aria-valuetext]="activeYear()"
         (input)="scrubYear($event)"
       />
       <span class="w-12 text-right text-xs tabular-nums text-slate-500">{{ range.to }}</span>
@@ -75,7 +78,25 @@
     </footer>
   }
 } @else if (status() === 'error') {
-  <p class="p-6 text-sm text-red-600">This park archive could not be loaded.</p>
+  <div role="alert" class="m-6 rounded-lg border border-red-200 bg-red-50 p-4">
+    <p class="text-sm text-red-700">This park archive could not be loaded.</p>
+    <button
+      type="button"
+      (click)="retry()"
+      class="mt-2 rounded bg-red-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-red-700"
+    >
+      Retry
+    </button>
+  </div>
 } @else {
-  <p class="p-6 text-sm text-slate-500">Loading archive…</p>
+  <div class="flex min-h-0 flex-1 flex-col" role="status" aria-label="Loading park archive">
+    <div class="flex items-center gap-4 border-b border-slate-200 px-6 py-3">
+      <app-skeleton class="h-4 w-40" />
+      <app-skeleton class="h-4 w-24" />
+    </div>
+    <app-skeleton class="m-4 flex-1 rounded-lg" />
+    <div class="flex items-center gap-4 border-t border-slate-200 px-6 py-3">
+      <app-skeleton class="h-2 flex-1 rounded-full" />
+    </div>
+  </div>
 }

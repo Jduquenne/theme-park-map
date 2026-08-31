@@ -45,6 +45,7 @@ export class LeafletMap {
   private map: LeafletMapInstance | null = null;
   private overlay: ImageOverlay | null = null;
   private readonly markers: LayerGroup = layerGroup();
+  private readonly prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   constructor() {
     afterNextRender(() => this.initialize());
@@ -98,7 +99,9 @@ export class LeafletMap {
     this.overlay = incoming;
     this.map.setMaxBounds(bounds);
 
-    if (!outgoing) {
+    if (!outgoing || this.prefersReducedMotion) {
+      outgoing?.remove();
+      incoming.setOpacity(1);
       this.map.fitBounds(bounds);
       return;
     }

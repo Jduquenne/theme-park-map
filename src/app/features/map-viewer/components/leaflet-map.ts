@@ -92,10 +92,27 @@ export class LeafletMap {
       return;
     }
     const bounds = imageBounds(image);
-    this.overlay?.remove();
-    this.overlay = imageOverlay(image.path, bounds).addTo(this.map);
+    const outgoing = this.overlay;
+    const incoming = imageOverlay(image.path, bounds, { opacity: outgoing ? 0 : 1 }).addTo(this.map);
+
+    this.overlay = incoming;
     this.map.setMaxBounds(bounds);
-    this.map.fitBounds(bounds);
+
+    if (!outgoing) {
+      this.map.fitBounds(bounds);
+      return;
+    }
+
+    this.map.flyToBounds(bounds, { duration: 0.4 });
+    requestAnimationFrame(() => {
+      incoming.setOpacity(1);
+      outgoing.setOpacity(0);
+    });
+    window.setTimeout(() => {
+      if (this.map) {
+        outgoing.remove();
+      }
+    }, 500);
   }
 
   private renderMarkers(pois: readonly PointOfInterest[], selectedId: string | null): void {

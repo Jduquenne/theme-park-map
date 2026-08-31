@@ -9,3 +9,7 @@ body {
 body {
   margin: 0;
 }
+
+.leaflet-image-layer {
+  transition: opacity 400ms ease;
+}

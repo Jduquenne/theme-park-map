@@ -13,7 +13,7 @@ import { ParkGroup, groupByCountry } from './group-by-location';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class:
-      'flex min-h-0 flex-col overflow-hidden bg-parchment md:rounded-xl md:border md:border-line',
+      'flex min-h-0 flex-col overflow-hidden bg-parchment xl:rounded-xl xl:border xl:border-line',
   },
   imports: [RouterLink, RouterLinkActive, Skeleton],
   templateUrl: './park-index.html',

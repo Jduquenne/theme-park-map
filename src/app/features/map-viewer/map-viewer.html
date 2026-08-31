@@ -1,6 +1,6 @@
 @if (park(); as park) {
   <header
-    class="hidden flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-line bg-card px-5 py-2.5 md:flex"
+    class="hidden flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-line bg-card px-5 py-2.5 lg:flex"
   >
     <a
       routerLink="/"
@@ -42,7 +42,7 @@
         <a
           routerLink="/"
           aria-label="Back to the park archive"
-          class="absolute left-3 top-3 z-[1000] flex size-10 items-center justify-center rounded-full border border-line bg-card text-ink-soft shadow-md hover:bg-parchment hover:text-ink md:hidden"
+          class="absolute left-3 top-3 z-[1000] flex size-10 items-center justify-center rounded-full border border-line bg-card text-ink-soft shadow-md hover:bg-parchment hover:text-ink lg:hidden"
         >
           <svg viewBox="0 0 16 16" class="size-4" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M10 3l-5 5 5 5" stroke-linecap="round" stroke-linejoin="round" />
@@ -51,7 +51,7 @@
 
         @if (timeline(); as range) {
           <app-time-bar
-            class="absolute left-1/2 top-3 z-[1000] w-[calc(100%-7rem)] max-w-[560px] -translate-x-1/2 md:w-[calc(100%-6rem)]"
+            class="absolute left-1/2 top-3 z-[1000] w-[calc(100%-7rem)] max-w-[560px] -translate-x-1/2 lg:w-[calc(100%-6rem)]"
             [maps]="maps()"
             [selectedMapId]="selectedMap()?.id ?? null"
             [from]="range.from"
@@ -67,7 +67,7 @@
           (click)="toggleFullscreen()"
           [attr.aria-pressed]="isFullscreen()"
           [attr.aria-label]="isFullscreen() ? 'Exit full screen' : 'Full screen'"
-          class="absolute right-3 top-3 z-[1000] hidden rounded-lg border border-line bg-card p-2 text-ink-soft shadow-sm hover:bg-parchment hover:text-ink md:block"
+          class="absolute right-3 top-3 z-[1000] hidden rounded-lg border border-line bg-card p-2 text-ink-soft shadow-sm hover:bg-parchment hover:text-ink lg:block"
         >
           <svg viewBox="0 0 16 16" class="size-4" fill="none" stroke="currentColor" stroke-width="1.75">
             @if (isFullscreen()) {
@@ -83,7 +83,7 @@
     </div>
 
     @if (selectedMap()) {
-      <div class="hidden md:contents">
+      <div class="hidden lg:contents">
         @if (selectedPoi(); as poi) {
           <app-poi-detail [poi]="poi" (closed)="clearPoi()" />
         } @else {

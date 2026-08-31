@@ -20,7 +20,7 @@ const EXPAND_THRESHOLD = 0.5;
 @Component({
   selector: 'app-mobile-bottom-sheet',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'md:hidden' },
+  host: { class: 'lg:hidden' },
   imports: [PoiDetail, PoiLegend, PoiRows],
   templateUrl: './mobile-bottom-sheet.html',
 })

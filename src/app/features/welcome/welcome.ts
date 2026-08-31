@@ -8,12 +8,12 @@ import { ParkIndex } from '../park-index/park-index';
 @Component({
   selector: 'app-welcome',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'flex min-h-0 flex-1 flex-col md:items-center md:justify-center md:p-8' },
+  host: { class: 'flex min-h-0 flex-1 flex-col xl:items-center xl:justify-center xl:p-8' },
   imports: [ParkIndex],
   template: `
-    <app-park-index class="min-h-0 flex-1 md:hidden" />
+    <app-park-index class="min-h-0 flex-1 xl:hidden" />
 
-    <div class="hidden max-w-md text-center md:block">
+    <div class="hidden max-w-md text-center xl:block">
       <h1 class="font-display text-3xl font-semibold uppercase tracking-[0.14em] text-ink">
         The park map archive
       </h1>

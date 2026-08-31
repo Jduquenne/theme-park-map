@@ -1,18 +1,18 @@
-<div class="flex h-dvh flex-col bg-shell text-ink md:gap-2.5 md:p-2.5">
+<div class="flex h-dvh flex-col bg-shell text-ink lg:gap-2.5 lg:p-2.5">
   <header
-    class="hidden shrink-0 items-center justify-center rounded-xl border border-line bg-parchment px-6 py-2.5 md:flex"
+    class="hidden shrink-0 items-center justify-center rounded-xl border border-line bg-parchment px-6 py-2.5 lg:flex"
   >
     <a routerLink="/" class="font-display text-lg font-semibold uppercase tracking-[0.2em] text-ink">
       Park Map History
     </a>
   </header>
 
-  <div class="flex min-h-0 flex-1 md:gap-2.5">
-    <div class="hidden shrink-0 md:block">
+  <div class="flex min-h-0 flex-1 lg:gap-2.5">
+    <div class="hidden shrink-0 xl:block">
       <app-park-index class="h-full w-80" />
     </div>
     <main
-      class="flex min-h-0 flex-1 flex-col bg-parchment md:overflow-hidden md:rounded-xl md:border md:border-line"
+      class="flex min-h-0 flex-1 flex-col bg-parchment lg:overflow-hidden lg:rounded-xl lg:border lg:border-line"
     >
       <router-outlet />
     </main>

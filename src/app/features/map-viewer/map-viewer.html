@@ -1,5 +1,7 @@
 @if (park(); as park) {
-  <header class="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-line bg-card px-5 py-2.5">
+  <header
+    class="hidden flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-line bg-card px-5 py-2.5 md:flex"
+  >
     <a
       routerLink="/"
       class="font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-soft hover:text-ink"
@@ -37,9 +39,19 @@
           <div class="absolute inset-0 animate-pulse bg-[#e3e0d4]"></div>
         }
 
+        <a
+          routerLink="/"
+          aria-label="Back to the park archive"
+          class="absolute left-3 top-3 z-[1000] flex size-10 items-center justify-center rounded-full border border-line bg-card text-ink-soft shadow-md hover:bg-parchment hover:text-ink md:hidden"
+        >
+          <svg viewBox="0 0 16 16" class="size-4" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 3l-5 5 5 5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+
         @if (timeline(); as range) {
           <app-time-bar
-            class="absolute left-1/2 top-3 z-[1000] w-[calc(100%-6rem)] max-w-[560px] -translate-x-1/2"
+            class="absolute left-1/2 top-3 z-[1000] w-[calc(100%-7rem)] max-w-[560px] -translate-x-1/2 md:w-[calc(100%-6rem)]"
             [maps]="maps()"
             [selectedMapId]="selectedMap()?.id ?? null"
             [from]="range.from"
@@ -55,7 +67,7 @@
           (click)="toggleFullscreen()"
           [attr.aria-pressed]="isFullscreen()"
           [attr.aria-label]="isFullscreen() ? 'Exit full screen' : 'Full screen'"
-          class="absolute right-3 top-3 z-[1000] rounded-lg border border-line bg-card p-2 text-ink-soft shadow-sm hover:bg-parchment hover:text-ink"
+          class="absolute right-3 top-3 z-[1000] hidden rounded-lg border border-line bg-card p-2 text-ink-soft shadow-sm hover:bg-parchment hover:text-ink md:block"
         >
           <svg viewBox="0 0 16 16" class="size-4" fill="none" stroke="currentColor" stroke-width="1.75">
             @if (isFullscreen()) {
@@ -71,20 +83,34 @@
     </div>
 
     @if (selectedMap()) {
-      @if (selectedPoi(); as poi) {
-        <app-poi-detail [poi]="poi" (closed)="clearPoi()" />
-      } @else {
-        <app-poi-list
-          [pois]="visiblePois()"
-          [legend]="legendEntries()"
-          [year]="activeYear()"
-          [selectedId]="selectedPoiId()"
-          [takeFocus]="returnFocusToList()"
-          (picked)="pickPoi($event)"
-          (toggleCategory)="toggleCategory($event)"
-          (showAll)="showAllCategories()"
-        />
-      }
+      <div class="hidden md:contents">
+        @if (selectedPoi(); as poi) {
+          <app-poi-detail [poi]="poi" (closed)="clearPoi()" />
+        } @else {
+          <app-poi-list
+            [pois]="visiblePois()"
+            [legend]="legendEntries()"
+            [year]="activeYear()"
+            [selectedId]="selectedPoiId()"
+            [takeFocus]="returnFocusToList()"
+            (picked)="pickPoi($event)"
+            (toggleCategory)="toggleCategory($event)"
+            (showAll)="showAllCategories()"
+          />
+        }
+      </div>
+
+      <app-mobile-bottom-sheet
+        [pois]="visiblePois()"
+        [legend]="legendEntries()"
+        [year]="activeYear()"
+        [selectedId]="selectedPoiId()"
+        [detail]="selectedPoi()"
+        (picked)="pickPoi($event)"
+        (toggleCategory)="toggleCategory($event)"
+        (showAll)="showAllCategories()"
+        (closeDetail)="clearPoi()"
+      />
     }
   </div>
 

@@ -12,7 +12,8 @@ import { ParkGroup, groupByCountry } from './group-by-location';
   selector: 'app-park-index',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'flex min-h-0 flex-col overflow-hidden rounded-xl border border-line bg-parchment',
+    class:
+      'flex min-h-0 flex-col overflow-hidden bg-parchment md:rounded-xl md:border md:border-line',
   },
   imports: [RouterLink, RouterLinkActive, Skeleton],
   templateUrl: './park-index.html',

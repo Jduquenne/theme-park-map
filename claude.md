@@ -17,6 +17,7 @@ Interactive historical map viewer for theme parks using Angular, Tailwind CSS, a
 
 - **Zero/Minimal Comments**: The code must be self-documenting through clear, explicit naming conventions. Only comment on highly complex business logic or weird workarounds.
 - **Typing**: Strict TypeScript. No `any`. Define proper interfaces for all JSON data structures.
+- **Mobile-First Priority**: Active mobile adaptation must be implemented for all key features. Prioritize mobile-first patterns like Bottom Sheets and floating controls over merely hiding large desktop elements. Code responsive interaction behaviors (e.g., a drag gesture for the sheet) instead of simple toggling.
 
 # Git Workflow Rules
 

@@ -8,14 +8,14 @@ import {
   viewChild,
 } from '@angular/core';
 import { PoiCategory, PointOfInterest } from '../../../core/models';
-import { POI_COLOR, POI_LABEL } from './poi-style';
 import { PoiLegend, PoiLegendEntry } from './poi-legend';
+import { PoiRows } from './poi-rows';
 
 @Component({
   selector: 'app-poi-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
-  imports: [PoiLegend],
+  imports: [PoiLegend, PoiRows],
   templateUrl: './poi-list.html',
 })
 export class PoiList {
@@ -28,9 +28,6 @@ export class PoiList {
   readonly picked = output<string>();
   readonly toggleCategory = output<PoiCategory>();
   readonly showAll = output<void>();
-
-  protected readonly color = POI_COLOR;
-  protected readonly label = POI_LABEL;
 
   private readonly panel = viewChild.required<ElementRef<HTMLElement>>('panel');
 

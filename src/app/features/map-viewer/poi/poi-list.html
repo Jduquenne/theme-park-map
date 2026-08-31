@@ -23,39 +23,11 @@
     }
   </div>
 
-  @if (pois().length) {
-    <ul class="min-h-0 flex-1 divide-y divide-line/70 overflow-y-auto">
-      @for (poi of pois(); track poi.id) {
-        <li>
-          <button
-            type="button"
-            (click)="picked.emit(poi.id)"
-            [attr.aria-current]="poi.id === selectedId() ? 'true' : null"
-            class="relative flex w-full items-start gap-2.5 px-4 py-2.5 text-left transition-colors hover:bg-parchment"
-            [class.bg-tan]="poi.id === selectedId()"
-          >
-            @if (poi.id === selectedId()) {
-              <span class="absolute inset-y-0 left-0 w-1 bg-denim"></span>
-            }
-            <span
-              class="mt-0.5 size-3 shrink-0 rounded-[4px]"
-              [style.background-color]="color[poi.category]"
-            ></span>
-            <span class="min-w-0 flex-1">
-              <span class="block text-sm font-semibold leading-tight text-ink">{{ poi.name }}</span>
-              @if (poi.description) {
-                <span class="mt-0.5 line-clamp-2 text-xs leading-snug text-ink-soft">
-                  {{ poi.description }}
-                </span>
-              } @else {
-                <span class="text-xs text-ink-soft/70">{{ label[poi.category] }}</span>
-              }
-            </span>
-          </button>
-        </li>
-      }
-    </ul>
-  } @else {
-    <p class="px-4 py-4 text-sm text-ink-soft">No points visible at this year.</p>
-  }
+  <div class="min-h-0 flex-1 overflow-y-auto">
+    <app-poi-rows
+      [pois]="pois()"
+      [selectedId]="selectedId()"
+      (picked)="picked.emit($event)"
+    />
+  </div>
 </aside>

@@ -23,6 +23,7 @@ import {
 import { Skeleton } from '../../shared/components/skeleton';
 import { LeafletMap } from './leaflet-map';
 import { TimeBar } from './time-bar';
+import { MobileBottomSheet } from './mobile/mobile-bottom-sheet';
 import { PoiDetail } from './poi/poi-detail';
 import { PoiLegendEntry } from './poi/poi-legend';
 import { PoiList } from './poi/poi-list';
@@ -43,7 +44,7 @@ const categorySetParam: QueryParamCodec<ReadonlySet<PoiCategory>> = {
     class: 'flex min-h-0 flex-1 flex-col',
     '(document:fullscreenchange)': 'syncFullscreen()',
   },
-  imports: [LeafletMap, TimeBar, PoiDetail, PoiList, Skeleton, RouterLink],
+  imports: [LeafletMap, TimeBar, MobileBottomSheet, PoiDetail, PoiList, Skeleton, RouterLink],
   templateUrl: './map-viewer.html',
 })
 export class MapViewer {

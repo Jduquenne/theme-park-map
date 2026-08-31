@@ -1,0 +1,57 @@
+<div
+  #sheet
+  role="region"
+  aria-label="Points of interest"
+  class="fixed inset-x-0 bottom-0 z-[1200] flex h-[85dvh] flex-col rounded-t-2xl border-t border-line bg-card shadow-[0_-6px_28px_rgb(40_38_33/0.22)] will-change-transform"
+  [style.transform]="transform()"
+  [style.transition]="dragging() ? 'none' : 'transform 300ms ease-out'"
+>
+  <div
+    class="flex shrink-0 touch-none cursor-grab flex-col items-center gap-3 pt-2.5 active:cursor-grabbing"
+    role="button"
+    tabindex="0"
+    [attr.aria-expanded]="expanded()"
+    aria-label="Expand or collapse the points of interest list"
+    (pointerdown)="onPointerDown($event)"
+    (pointermove)="onPointerMove($event)"
+    (pointerup)="onPointerUp()"
+    (pointercancel)="onPointerUp()"
+    (keydown.enter)="toggle()"
+    (keydown.space)="toggle()"
+  >
+    <span class="h-1 w-9 rounded-full bg-line"></span>
+
+    <div class="w-full space-y-2 px-4 pb-3">
+      <h3 class="font-display text-sm font-semibold uppercase tracking-[0.12em] text-ink">
+        Points of interest
+        @if (year() !== null) {
+          <span class="font-normal text-ink-soft">· {{ year() }}</span>
+        }
+        <span class="font-normal text-ink-soft/60">({{ pois().length }})</span>
+      </h3>
+
+      @if (legend().length > 1) {
+        <div class="-mx-4 overflow-x-auto px-4">
+          <app-poi-legend
+            class="block w-max"
+            [entries]="legend()"
+            (toggle)="toggleCategory.emit($event)"
+            (showAll)="showAll.emit()"
+          />
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="min-h-0 flex-1 overflow-y-auto overscroll-contain border-t border-line">
+    @if (detail(); as poi) {
+      <app-poi-detail [poi]="poi" (closed)="closeDetail.emit()" />
+    } @else {
+      <app-poi-rows
+        [pois]="pois()"
+        [selectedId]="selectedId()"
+        (picked)="picked.emit($event)"
+      />
+    }
+  </div>
+</div>

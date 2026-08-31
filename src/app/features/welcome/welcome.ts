@@ -3,13 +3,17 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ParkRepository } from '../../core/services/park-repository';
 import { RequestState, toRequestState } from '../../shared/http/request-state';
 import { ParkSummary } from '../../core/models';
+import { ParkIndex } from '../park-index/park-index';
 
 @Component({
   selector: 'app-welcome',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'flex min-h-0 flex-1 items-center justify-center p-8' },
+  host: { class: 'flex min-h-0 flex-1 flex-col md:items-center md:justify-center md:p-8' },
+  imports: [ParkIndex],
   template: `
-    <div class="max-w-md text-center">
+    <app-park-index class="min-h-0 flex-1 md:hidden" />
+
+    <div class="hidden max-w-md text-center md:block">
       <h1 class="font-display text-3xl font-semibold uppercase tracking-[0.14em] text-ink">
         The park map archive
       </h1>

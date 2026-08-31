@@ -1,0 +1,44 @@
+{
+  "id": "prk-cedar-hollow",
+  "slug": "cedar-hollow",
+  "name": "Cedar Hollow",
+  "resort": null,
+  "location": { "city": "Kingsport", "country": "Canada" },
+  "operating": { "from": 1961, "to": 2004 },
+  "description": "A fictional woodland amusement park used as seed data. Replace this file with real archival content.",
+  "maps": [
+    {
+      "id": "map-cedar-1972",
+      "title": "Peak Years",
+      "period": { "from": 1968, "to": 2004 },
+      "image": { "path": "maps/cedar-hollow/1972.svg", "width": 1800, "height": 1200 },
+      "source": null,
+      "pointsOfInterest": [
+        {
+          "id": "poi-cedar-1972-gate",
+          "name": "Hollow Gate",
+          "category": "entrance",
+          "position": { "x": 900, "y": 1130 },
+          "description": null,
+          "operating": { "from": 1961, "to": 2004 }
+        },
+        {
+          "id": "poi-cedar-1972-timber-flume",
+          "name": "Timber Flume",
+          "category": "attraction",
+          "position": { "x": 620, "y": 540 },
+          "description": "Log flume threading the north ravine.",
+          "operating": { "from": 1971, "to": 2004 }
+        },
+        {
+          "id": "poi-cedar-1972-bandstand",
+          "name": "The Bandstand",
+          "category": "show",
+          "position": { "x": 1180, "y": 700 },
+          "description": null,
+          "operating": { "from": 1961, "to": 1994 }
+        }
+      ]
+    }
+  ]
+}

@@ -7,5 +7,23 @@
     "location": { "city": "Northbridge", "country": "Canada" },
     "mappedPeriod": { "from": 1976, "to": null },
     "mapCount": 2
+  },
+  {
+    "id": "prk-cedar-hollow",
+    "slug": "cedar-hollow",
+    "name": "Cedar Hollow",
+    "resort": null,
+    "location": { "city": "Kingsport", "country": "Canada" },
+    "mappedPeriod": { "from": 1961, "to": 2004 },
+    "mapCount": 1
+  },
+  {
+    "id": "prk-marlowe-pier",
+    "slug": "marlowe-pier",
+    "name": "Marlowe Pier Pleasure Grounds",
+    "resort": null,
+    "location": { "city": "Marlowe", "country": "United Kingdom" },
+    "mappedPeriod": { "from": 1908, "to": null },
+    "mapCount": 1
   }
 ]

@@ -8,7 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { takeUntilDestroyed, toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { combineLatest, debounceTime, switchMap } from 'rxjs';
 import { HistoricalMap, Park, PoiCategory, PointOfInterest } from '../../core/models';
 import { ParkRepository } from '../../core/services/park-repository';
@@ -27,7 +27,7 @@ const CURRENT_YEAR = new Date().getFullYear();
   selector: 'app-map-viewer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'flex min-h-0 flex-1 flex-col' },
-  imports: [LeafletMap, PoiDetail, PoiList, Skeleton],
+  imports: [LeafletMap, PoiDetail, PoiList, Skeleton, RouterLink],
   templateUrl: './map-viewer.html',
 })
 export class MapViewer {
@@ -49,6 +49,8 @@ export class MapViewer {
   private readonly queryParams = toSignal(this.route.queryParamMap, {
     initialValue: this.route.snapshot.queryParamMap,
   });
+
+  readonly returnFocusToList = signal(false);
 
   readonly status = computed(() => this.request().status);
 
@@ -152,14 +154,17 @@ export class MapViewer {
     this.selectedMapId.set(id);
     this.selectedPoiId.set(null);
     this.year.set(null);
+    this.returnFocusToList.set(false);
   }
 
   pickPoi(id: string): void {
     this.selectedPoiId.update((current) => (current === id ? null : id));
+    this.returnFocusToList.set(false);
   }
 
   clearPoi(): void {
     this.selectedPoiId.set(null);
+    this.returnFocusToList.set(true);
   }
 
   scrubYear(event: Event): void {

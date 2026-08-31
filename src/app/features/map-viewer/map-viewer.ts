@@ -16,7 +16,7 @@ import { RequestState, toRequestState } from '../../shared/http/request-state';
 import { Skeleton } from '../../shared/components/skeleton';
 import { LeafletMap } from './components/leaflet-map';
 import { PoiDetail } from './components/poi-detail';
-import { PoiLegend, PoiLegendEntry } from './components/poi-legend';
+import { PoiLegendEntry } from './components/poi-legend';
 import { PoiList } from './components/poi-list';
 import { POI_LABEL } from './poi-style';
 import { isActiveInYear, resolveOpenEnd } from './poi-visibility';
@@ -27,7 +27,7 @@ const CURRENT_YEAR = new Date().getFullYear();
   selector: 'app-map-viewer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'flex min-h-0 flex-1 flex-col' },
-  imports: [LeafletMap, PoiLegend, PoiDetail, PoiList, Skeleton],
+  imports: [LeafletMap, PoiDetail, PoiList, Skeleton],
   templateUrl: './map-viewer.html',
 })
 export class MapViewer {

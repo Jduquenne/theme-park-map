@@ -1,9 +1,17 @@
 <aside class="flex h-full w-72 flex-col border-l border-slate-200 bg-white">
-  <div class="border-b border-slate-100 px-4 py-3">
+  <div class="space-y-2 border-b border-slate-100 px-4 py-3">
     <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-400">
       Points of interest
       <span class="ml-1 text-slate-300">{{ pois().length }}</span>
     </h3>
+
+    @if (legend().length > 1) {
+      <app-poi-legend
+        class="block"
+        [entries]="legend()"
+        (toggle)="toggleCategory.emit($event)"
+      />
+    }
   </div>
 
   @if (pois().length) {

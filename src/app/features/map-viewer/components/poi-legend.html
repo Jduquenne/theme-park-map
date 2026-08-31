@@ -1,27 +1,24 @@
-@if (entries().length) {
-  <ul
-    class="flex flex-col gap-0.5 rounded-lg border border-slate-200 bg-white/95 p-1.5 shadow-sm backdrop-blur"
-  >
-    @for (entry of entries(); track entry.category) {
-      <li>
-        <button
-          type="button"
-          (click)="toggle.emit(entry.category)"
-          [attr.aria-pressed]="!entry.hidden"
-          [attr.aria-label]="'Toggle ' + label[entry.category] + ' markers'"
-          class="flex w-full items-center gap-2 rounded px-2 py-1 text-left text-xs hover:bg-slate-100"
-          [class.opacity-40]="entry.hidden"
-        >
-          <span
-            class="size-3 shrink-0 rounded-full"
-            [style.background-color]="color[entry.category]"
-          ></span>
-          <span class="flex-1 font-medium" [class.line-through]="entry.hidden">
-            {{ label[entry.category] }}
-          </span>
-          <span class="tabular-nums text-slate-400">{{ entry.count }}</span>
-        </button>
-      </li>
-    }
-  </ul>
-}
+<div class="flex flex-wrap gap-1">
+  @for (entry of entries(); track entry.category) {
+    <button
+      type="button"
+      (click)="toggle.emit(entry.category)"
+      [attr.aria-pressed]="!entry.hidden"
+      [attr.aria-label]="'Toggle ' + label[entry.category] + ' markers'"
+      class="flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium transition-colors"
+      [class]="
+        entry.hidden
+          ? 'border-slate-200 text-slate-300'
+          : 'border-slate-300 text-slate-600 hover:bg-slate-50'
+      "
+    >
+      <span
+        class="size-2 rounded-full"
+        [class.opacity-30]="entry.hidden"
+        [style.background-color]="color[entry.category]"
+      ></span>
+      {{ label[entry.category] }}
+      <span class="text-slate-400">{{ entry.count }}</span>
+    </button>
+  }
+</div>

@@ -15,23 +15,11 @@
     </div>
 
     @if (maps().length > 1) {
-      <nav class="flex gap-1" aria-label="Historical map">
-        @for (entry of maps(); track entry.id) {
-          <button
-            type="button"
-            (click)="selectMap(entry.id)"
-            [attr.aria-pressed]="entry.id === selectedMap()?.id"
-            class="rounded px-3 py-1 text-xs font-medium transition-colors"
-            [class]="
-              entry.id === selectedMap()?.id
-                ? 'bg-slate-900 text-white'
-                : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-            "
-          >
-            {{ entry.title }}
-          </button>
-        }
-      </nav>
+      <app-map-switcher
+        [maps]="maps()"
+        [selectedId]="selectedMap()?.id ?? null"
+        (selected)="selectMap($event)"
+      />
     }
   </header>
 
@@ -71,24 +59,13 @@
   </div>
 
   @if (timeline(); as range) {
-    <footer class="flex items-center gap-4 border-t border-slate-200 px-6 py-3">
-      <span class="w-12 text-xs tabular-nums text-slate-500">{{ range.from }}</span>
-      <input
-        type="range"
-        class="flex-1 accent-slate-900"
-        aria-label="Year"
-        [min]="range.from"
-        [max]="range.to"
+    <footer class="border-t border-slate-200 px-6 py-3">
+      <app-year-scrubber
+        [from]="range.from"
+        [to]="range.to"
         [value]="activeYear()"
-        [attr.aria-valuetext]="activeYear()"
-        (input)="scrubYear($event)"
+        (yearPicked)="year.set($event)"
       />
-      <span class="w-12 text-right text-xs tabular-nums text-slate-500">{{ range.to }}</span>
-      <span
-        class="w-16 rounded bg-slate-900 px-2 py-1 text-center text-xs font-semibold tabular-nums text-white"
-      >
-        {{ activeYear() }}
-      </span>
     </footer>
   }
 } @else if (status() === 'error') {

@@ -51,8 +51,16 @@
       }
     </div>
 
-    @if (selectedPoi(); as poi) {
-      <app-poi-detail [poi]="poi" (closed)="clearPoi()" />
+    @if (selectedMap()) {
+      @if (selectedPoi(); as poi) {
+        <app-poi-detail [poi]="poi" (closed)="clearPoi()" />
+      } @else {
+        <app-poi-list
+          [pois]="visiblePois()"
+          [selectedId]="selectedPoiId()"
+          (picked)="pickPoi($event)"
+        />
+      }
     }
   </div>
 

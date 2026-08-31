@@ -1,0 +1,25 @@
+@if (entries().length) {
+  <ul
+    class="flex flex-col gap-0.5 rounded-lg border border-slate-200 bg-white/95 p-1.5 shadow-sm backdrop-blur"
+  >
+    @for (entry of entries(); track entry.category) {
+      <li>
+        <button
+          type="button"
+          (click)="toggle.emit(entry.category)"
+          class="flex w-full items-center gap-2 rounded px-2 py-1 text-left text-xs hover:bg-slate-100"
+          [class.opacity-40]="entry.hidden"
+        >
+          <span
+            class="size-3 shrink-0 rounded-full"
+            [style.background-color]="color[entry.category]"
+          ></span>
+          <span class="flex-1 font-medium" [class.line-through]="entry.hidden">
+            {{ label[entry.category] }}
+          </span>
+          <span class="tabular-nums text-slate-400">{{ entry.count }}</span>
+        </button>
+      </li>
+    }
+  </ul>
+}

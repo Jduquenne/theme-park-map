@@ -36,6 +36,12 @@
       } @placeholder {
         <div class="absolute inset-0 animate-pulse bg-slate-100"></div>
       }
+
+      <app-poi-legend
+        class="absolute right-3 top-3 z-[1000] max-w-44"
+        [entries]="legendEntries()"
+        (toggle)="toggleCategory($event)"
+      />
     } @else {
       <p class="p-6 text-sm text-slate-500">No historical map recorded for this park yet.</p>
     }

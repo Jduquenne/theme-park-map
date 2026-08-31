@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { PoiCategory } from '../../../core/models';
 import { POI_COLOR, POI_LABEL } from './poi-style';
 
@@ -17,7 +17,10 @@ export interface PoiLegendEntry {
 export class PoiLegend {
   readonly entries = input.required<readonly PoiLegendEntry[]>();
   readonly toggle = output<PoiCategory>();
+  readonly showAll = output<void>();
 
   protected readonly color = POI_COLOR;
   protected readonly label = POI_LABEL;
+
+  protected readonly allActive = computed(() => this.entries().every((entry) => !entry.hidden));
 }

@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  computed,
+  inject,
+  input,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { combineLatest, switchMap } from 'rxjs';
@@ -13,8 +22,7 @@ import {
 } from '../../shared/router/query-params-state';
 import { Skeleton } from '../../shared/components/skeleton';
 import { LeafletMap } from './leaflet-map';
-import { MapSwitcher } from './map-switcher';
-import { YearScrubber } from './year-scrubber';
+import { TimeBar } from './time-bar';
 import { PoiDetail } from './poi/poi-detail';
 import { PoiLegendEntry } from './poi/poi-legend';
 import { PoiList } from './poi/poi-list';
@@ -31,14 +39,20 @@ const categorySetParam: QueryParamCodec<ReadonlySet<PoiCategory>> = {
 @Component({
   selector: 'app-map-viewer',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'flex min-h-0 flex-1 flex-col' },
-  imports: [LeafletMap, MapSwitcher, PoiDetail, PoiList, YearScrubber, Skeleton, RouterLink],
+  host: {
+    class: 'flex min-h-0 flex-1 flex-col',
+    '(document:fullscreenchange)': 'syncFullscreen()',
+  },
+  imports: [LeafletMap, TimeBar, PoiDetail, PoiList, Skeleton, RouterLink],
   templateUrl: './map-viewer.html',
 })
 export class MapViewer {
   private readonly repository = inject(ParkRepository);
 
   readonly slug = input.required<string>();
+
+  private readonly mapRegion = viewChild<ElementRef<HTMLElement>>('mapRegion');
+  readonly isFullscreen = signal(false);
 
   private readonly reload = signal(0);
 
@@ -154,5 +168,25 @@ export class MapViewer {
       }
       return next;
     });
+  }
+
+  showAllCategories(): void {
+    this.hiddenCategories.set(new Set());
+  }
+
+  toggleFullscreen(): void {
+    const el = this.mapRegion()?.nativeElement;
+    if (!el) {
+      return;
+    }
+    if (document.fullscreenElement) {
+      void document.exitFullscreen();
+    } else {
+      void el.requestFullscreen?.();
+    }
+  }
+
+  syncFullscreen(): void {
+    this.isFullscreen.set(document.fullscreenElement !== null);
   }
 }

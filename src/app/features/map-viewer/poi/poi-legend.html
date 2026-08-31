@@ -1,15 +1,28 @@
 <div class="flex flex-wrap gap-1">
+  <button
+    type="button"
+    (click)="showAll.emit()"
+    [attr.aria-pressed]="allActive()"
+    class="rounded-full border px-2.5 py-0.5 font-display text-[10px] font-semibold uppercase tracking-wide transition-colors"
+    [class]="
+      allActive()
+        ? 'border-denim bg-denim-tint text-denim-ink'
+        : 'border-line text-ink-soft hover:bg-parchment'
+    "
+  >
+    All
+  </button>
   @for (entry of entries(); track entry.category) {
     <button
       type="button"
       (click)="toggle.emit(entry.category)"
       [attr.aria-pressed]="!entry.hidden"
       [attr.aria-label]="'Toggle ' + label[entry.category] + ' markers'"
-      class="flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium transition-colors"
+      class="flex items-center gap-1 rounded-full border px-2 py-0.5 font-display text-[10px] font-semibold uppercase tracking-wide transition-colors"
       [class]="
         entry.hidden
-          ? 'border-slate-200 text-slate-300'
-          : 'border-slate-300 text-slate-600 hover:bg-slate-50'
+          ? 'border-line text-ink-soft/50'
+          : 'border-denim/40 text-ink-soft hover:bg-parchment'
       "
     >
       <span
@@ -18,7 +31,7 @@
         [style.background-color]="color[entry.category]"
       ></span>
       {{ label[entry.category] }}
-      <span class="text-slate-400">{{ entry.count }}</span>
+      <span class="text-ink-soft/70">{{ entry.count }}</span>
     </button>
   }
 </div>

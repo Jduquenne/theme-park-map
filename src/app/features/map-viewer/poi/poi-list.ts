@@ -21,11 +21,13 @@ import { PoiLegend, PoiLegendEntry } from './poi-legend';
 export class PoiList {
   readonly pois = input.required<readonly PointOfInterest[]>();
   readonly legend = input.required<readonly PoiLegendEntry[]>();
+  readonly year = input<number | null>(null);
   readonly selectedId = input<string | null>(null);
   readonly takeFocus = input(false);
 
   readonly picked = output<string>();
   readonly toggleCategory = output<PoiCategory>();
+  readonly showAll = output<void>();
 
   protected readonly color = POI_COLOR;
   protected readonly label = POI_LABEL;

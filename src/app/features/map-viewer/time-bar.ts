@@ -19,7 +19,7 @@ const MAX_YEARS = 11;
 @Component({
   selector: 'app-time-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'block' },
+  host: { class: 'hidden lg:block' },
   template: `
     <div class="rounded-xl border border-line bg-card px-3 py-2 shadow-md">
       <p

@@ -5,8 +5,22 @@ import { switchMap } from 'rxjs';
 import { ParkSummary } from '../../core/models';
 import { ParkRepository } from '../../core/services/park-repository';
 import { RequestState, toRequestState } from '../../shared/http/request-state';
+import { formatCount } from '../../shared/text/format-count';
 import { Skeleton } from '../../shared/components/skeleton';
-import { ParkGroup, groupByCountry } from './group-by-location';
+import {
+  DEFAULT_DIRECTION,
+  ParkSort,
+  ParkStatus,
+  SortDirection,
+  countriesOf,
+  filterAndSortParks,
+} from './park-filtering';
+
+interface SortOption {
+  key: ParkSort;
+  ascLabel: string;
+  descLabel: string;
+}
 
 @Component({
   selector: 'app-park-index',
@@ -28,32 +42,52 @@ export class ParkIndex {
   );
 
   readonly query = signal('');
+  readonly sort = signal<ParkSort>('name');
+  readonly direction = signal<SortDirection>('asc');
+  readonly statusFilter = signal<ParkStatus>('all');
+  readonly country = signal<string>('all');
+
+  readonly sortOptions: readonly SortOption[] = [
+    { key: 'name', ascLabel: 'A–Z', descLabel: 'Z–A' },
+    { key: 'visitors', ascLabel: 'Fewest', descLabel: 'Most' },
+    { key: 'opened', ascLabel: 'Oldest', descLabel: 'Newest' },
+  ];
+  readonly statusOptions: readonly ParkStatus[] = ['all', 'open', 'closed'];
 
   readonly status = computed(() => this.request().status);
 
-  private readonly groups = computed<ParkGroup[]>(() => {
+  private readonly catalog = computed<ParkSummary[]>(() => {
     const state = this.request();
-    return state.status === 'loaded' ? groupByCountry(state.value) : [];
+    return state.status === 'loaded' ? state.value : [];
   });
 
-  readonly parkCount = computed(() =>
-    this.groups().reduce((total, group) => total + group.parks.length, 0),
+  readonly parkCount = computed(() => this.catalog().length);
+  readonly countries = computed(() => countriesOf(this.catalog()));
+  readonly countryCount = computed(() => this.countries().length);
+
+  readonly visibleParks = computed(() =>
+    filterAndSortParks(this.catalog(), {
+      query: this.query(),
+      sort: this.sort(),
+      direction: this.direction(),
+      status: this.statusFilter(),
+      country: this.country(),
+    }),
   );
 
-  readonly countryCount = computed(() => this.groups().length);
+  readonly sortIndex = computed(() => this.sortOptions.findIndex((o) => o.key === this.sort()));
+  readonly statusIndex = computed(() => this.statusOptions.indexOf(this.statusFilter()));
 
-  readonly filteredGroups = computed<ParkGroup[]>(() => {
-    const term = this.query().trim().toLowerCase();
-    if (!term) {
-      return this.groups();
-    }
-    return this.groups()
-      .map((group) => ({
-        country: group.country,
-        parks: group.parks.filter((park) => this.matches(park, term)),
-      }))
-      .filter((group) => group.parks.length > 0);
-  });
+  readonly hasActiveFilters = computed(
+    () =>
+      this.query().trim() !== '' ||
+      this.sort() !== 'name' ||
+      this.direction() !== 'asc' ||
+      this.statusFilter() !== 'all' ||
+      this.country() !== 'all',
+  );
+
+  protected readonly formatCount = formatCount;
 
   monogram(name: string): string {
     return name
@@ -68,15 +102,33 @@ export class ParkIndex {
     this.query.set((event.target as HTMLInputElement).value);
   }
 
-  retry(): void {
-    this.reload.update((n) => n + 1);
+  pickSort(key: ParkSort): void {
+    if (this.sort() === key) {
+      this.direction.update((current) => (current === 'asc' ? 'desc' : 'asc'));
+    } else {
+      this.sort.set(key);
+      this.direction.set(DEFAULT_DIRECTION[key]);
+    }
   }
 
-  private matches(park: ParkSummary, term: string): boolean {
-    return (
-      park.name.toLowerCase().includes(term) ||
-      park.location.city.toLowerCase().includes(term) ||
-      (park.resort?.toLowerCase().includes(term) ?? false)
-    );
+  sortLabel(option: SortOption): string {
+    const direction = this.sort() === option.key ? this.direction() : DEFAULT_DIRECTION[option.key];
+    return direction === 'asc' ? option.ascLabel : option.descLabel;
+  }
+
+  updateCountry(event: Event): void {
+    this.country.set((event.target as HTMLSelectElement).value);
+  }
+
+  resetFilters(): void {
+    this.query.set('');
+    this.sort.set('name');
+    this.direction.set('asc');
+    this.statusFilter.set('all');
+    this.country.set('all');
+  }
+
+  retry(): void {
+    this.reload.update((n) => n + 1);
   }
 }

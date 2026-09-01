@@ -21,6 +21,7 @@ import {
   queryParamsState,
   stringParam,
 } from '../../shared/router/query-params-state';
+import { formatCount } from '../../shared/text/format-count';
 import { Skeleton } from '../../shared/components/skeleton';
 import { LeafletMap } from './leaflet-map';
 import { TimeBar } from './time-bar';
@@ -106,10 +107,7 @@ export class MapViewer {
     if (!attendance) {
       return null;
     }
-    const count =
-      attendance.visitors >= 1_000_000
-        ? `${+(attendance.visitors / 1_000_000).toFixed(1)}M`
-        : `${Math.round(attendance.visitors / 1_000)}K`;
+    const count = formatCount(attendance.visitors);
     return attendance.year
       ? `≈ ${count} visitors (${attendance.year})`
       : `≈ ${count} visitors / year`;

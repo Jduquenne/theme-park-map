@@ -16,6 +16,7 @@ import { PoiRows } from '../poi/poi-rows';
 
 const PEEK_PX = 132;
 const EXPAND_THRESHOLD = 0.5;
+const SNAP_TRANSITION = 'transform 300ms ease-out';
 
 @Component({
   selector: 'app-mobile-bottom-sheet',
@@ -46,6 +47,7 @@ export class MobileBottomSheet {
   private dragStartTranslate = 0;
   private collapsedTranslate = 0;
   private autoOpenedFor: string | null = null;
+  private readonly reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   protected readonly transform = computed(() => {
     const drag = this.dragTranslate();
@@ -54,6 +56,10 @@ export class MobileBottomSheet {
     }
     return this.expanded() ? 'translateY(0)' : `translateY(calc(100% - ${PEEK_PX}px))`;
   });
+
+  protected readonly transition = computed(() =>
+    this.dragging() || this.reducedMotion ? 'none' : SNAP_TRANSITION,
+  );
 
   constructor() {
     effect(() => {

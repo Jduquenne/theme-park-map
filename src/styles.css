@@ -48,7 +48,7 @@ body {
 
 @media (max-width: 1023px) {
   .leaflet-top.leaflet-left {
-    top: 3.5rem;
+    top: calc(3.5rem + env(safe-area-inset-top));
   }
 }
 

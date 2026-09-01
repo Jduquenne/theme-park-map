@@ -4,7 +4,7 @@
   aria-label="Points of interest"
   class="fixed inset-x-0 bottom-0 z-[1200] flex h-[85dvh] flex-col rounded-t-2xl border-t border-line bg-card shadow-[0_-6px_28px_rgb(40_38_33/0.22)] will-change-transform"
   [style.transform]="transform()"
-  [style.transition]="dragging() ? 'none' : 'transform 300ms ease-out'"
+  [style.transition]="transition()"
 >
   <div
     class="flex shrink-0 touch-none cursor-grab flex-col items-center gap-3 pt-2.5 active:cursor-grabbing"
@@ -43,15 +43,13 @@
     </div>
   </div>
 
-  <div class="min-h-0 flex-1 overflow-y-auto overscroll-contain border-t border-line">
+  <div
+    class="min-h-0 flex-1 overflow-y-auto overscroll-contain border-t border-line pb-[env(safe-area-inset-bottom)]"
+  >
     @if (detail(); as poi) {
       <app-poi-detail [poi]="poi" (closed)="closeDetail.emit()" />
     } @else {
-      <app-poi-rows
-        [pois]="pois()"
-        [selectedId]="selectedId()"
-        (picked)="picked.emit($event)"
-      />
+      <app-poi-rows [pois]="pois()" [selectedId]="selectedId()" (picked)="picked.emit($event)" />
     }
   </div>
 </div>

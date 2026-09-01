@@ -15,7 +15,7 @@
     "visitors": 10400000,
     "year": 2023
   },
-  "logo": null,
+  "logo": "logos/disneyland-park.svg",
   "description": "The flagship Disney theme park in Europe, opened as Euro Disney in 1992 east of Paris.",
   "maps": []
 }

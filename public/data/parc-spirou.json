@@ -15,7 +15,7 @@
     "visitors": 320000,
     "year": 2023
   },
-  "logo": null,
+  "logo": "logos/parc-spirou.png",
   "description": "A theme park based on the Spirou comics, opened in 2018 in the Vaucluse.",
   "maps": []
 }

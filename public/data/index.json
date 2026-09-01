@@ -16,7 +16,7 @@
       "visitors": 10400000,
       "year": 2023
     },
-    "logo": null,
+    "logo": "logos/disneyland-park.svg",
     "mapCount": 0
   },
   {
@@ -36,7 +36,7 @@
       "visitors": 5700000,
       "year": 2023
     },
-    "logo": null,
+    "logo": "logos/disney-adventure-world.jpg",
     "mapCount": 0
   },
   {
@@ -56,7 +56,7 @@
       "visitors": 2815000,
       "year": 2023
     },
-    "logo": null,
+    "logo": "logos/parc-asterix.png",
     "mapCount": 0
   },
   {
@@ -76,7 +76,7 @@
       "visitors": 2500000,
       "year": 2023
     },
-    "logo": null,
+    "logo": "logos/puy-du-fou.png",
     "mapCount": 0
   },
   {
@@ -96,7 +96,7 @@
       "visitors": 1975000,
       "year": 2023
     },
-    "logo": null,
+    "logo": "logos/futuroscope.svg",
     "mapCount": 0
   },
   {
@@ -136,7 +136,7 @@
       "visitors": 1000000,
       "year": null
     },
-    "logo": null,
+    "logo": "logos/azur-park.jpg",
     "mapCount": 0
   },
   {
@@ -176,7 +176,7 @@
       "visitors": 710000,
       "year": 2025
     },
-    "logo": null,
+    "logo": "logos/nigloland.png",
     "mapCount": 0
   },
   {
@@ -196,7 +196,7 @@
       "visitors": 700000,
       "year": 2025
     },
-    "logo": null,
+    "logo": "logos/le-pal.png",
     "mapCount": 0
   },
   {
@@ -216,7 +216,7 @@
       "visitors": 667000,
       "year": 2024
     },
-    "logo": null,
+    "logo": "logos/walibi-rhone-alpes.png",
     "mapCount": 0
   },
   {
@@ -236,7 +236,7 @@
       "visitors": 587000,
       "year": 2024
     },
-    "logo": null,
+    "logo": "logos/terra-botanica.png",
     "mapCount": 0
   },
   {
@@ -256,7 +256,7 @@
       "visitors": 452000,
       "year": 2024
     },
-    "logo": null,
+    "logo": "logos/cite-de-l-espace.png",
     "mapCount": 0
   },
   {
@@ -296,7 +296,7 @@
       "visitors": 400000,
       "year": 2017
     },
-    "logo": null,
+    "logo": "logos/ok-corral.png",
     "mapCount": 0
   },
   {
@@ -316,7 +316,7 @@
       "visitors": 389000,
       "year": 2024
     },
-    "logo": null,
+    "logo": "logos/vulcania.png",
     "mapCount": 0
   },
   {
@@ -336,7 +336,7 @@
       "visitors": 384000,
       "year": 2022
     },
-    "logo": null,
+    "logo": "logos/parc-bagatelle.svg",
     "mapCount": 0
   },
   {
@@ -356,7 +356,7 @@
       "visitors": 361000,
       "year": 2024
     },
-    "logo": null,
+    "logo": "logos/la-mer-de-sable.png",
     "mapCount": 0
   },
   {
@@ -376,7 +376,7 @@
       "visitors": 360000,
       "year": 2024
     },
-    "logo": null,
+    "logo": "logos/parc-saint-paul.jpg",
     "mapCount": 0
   },
   {
@@ -416,7 +416,7 @@
       "visitors": 320000,
       "year": 2023
     },
-    "logo": null,
+    "logo": "logos/parc-spirou.png",
     "mapCount": 0
   },
   {
@@ -456,7 +456,7 @@
       "visitors": 300000,
       "year": 2017
     },
-    "logo": null,
+    "logo": "logos/walygator-sud-ouest.png",
     "mapCount": 0
   },
   {
@@ -476,7 +476,7 @@
       "visitors": 281000,
       "year": 2024
     },
-    "logo": null,
+    "logo": "logos/fraispertuis-city.jpg",
     "mapCount": 0
   },
   {
@@ -496,7 +496,7 @@
       "visitors": 275000,
       "year": 2024
     },
-    "logo": null,
+    "logo": "logos/walygator-grand-est.jpg",
     "mapCount": 0
   },
   {
@@ -513,7 +513,7 @@
       "to": 1991
     },
     "attendance": null,
-    "logo": null,
+    "logo": "logos/mirapolis.png",
     "mapCount": 0
   },
   {
@@ -530,7 +530,7 @@
       "to": 1991
     },
     "attendance": null,
-    "logo": null,
+    "logo": "logos/zygofolis.png",
     "mapCount": 0
   },
   {
@@ -598,7 +598,7 @@
       "to": 2019
     },
     "attendance": null,
-    "logo": null,
+    "logo": "logos/aqualud.jpg",
     "mapCount": 0
   },
   {
@@ -632,7 +632,7 @@
       "to": 1992
     },
     "attendance": null,
-    "logo": null,
+    "logo": "logos/parc-oceanique-cousteau.jpg",
     "mapCount": 0
   },
   {
@@ -666,7 +666,7 @@
       "to": 2014
     },
     "attendance": null,
-    "logo": null,
+    "logo": "logos/parc-avenue.jpg",
     "mapCount": 0
   },
   {

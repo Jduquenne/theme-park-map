@@ -148,11 +148,21 @@
               <span
                 class="absolute inset-y-0 left-0 w-1 bg-denim opacity-0 group-[.is-active]:opacity-100"
               ></span>
-              <span
-                class="flex size-9 shrink-0 items-center justify-center rounded-md bg-denim-tint font-display text-xs font-semibold text-denim-ink"
-              >
-                {{ monogram(park.name) }}
-              </span>
+              @if (park.logo; as logo) {
+                <img
+                  [src]="logo"
+                  [alt]="park.name + ' logo'"
+                  loading="lazy"
+                  decoding="async"
+                  class="size-9 shrink-0 rounded-md border border-line bg-card object-contain p-1"
+                />
+              } @else {
+                <span
+                  class="flex size-9 shrink-0 items-center justify-center rounded-md bg-denim-tint font-display text-xs font-semibold text-denim-ink"
+                >
+                  {{ monogram(park.name) }}
+                </span>
+              }
               <span class="min-w-0 flex-1">
                 <span class="block truncate font-semibold text-ink">{{ park.name }}</span>
                 <span class="mt-0.5 flex items-center gap-1.5 text-xs text-ink-soft">

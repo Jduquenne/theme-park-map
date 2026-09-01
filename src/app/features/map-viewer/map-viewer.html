@@ -8,6 +8,13 @@
     >
       ‹ Archive
     </a>
+    @if (park.logo; as logo) {
+      <img
+        [src]="logo"
+        [alt]="park.name + ' logo'"
+        class="h-7 w-auto max-w-[9rem] self-center object-contain"
+      />
+    }
     <h2 class="font-display text-lg font-semibold uppercase tracking-[0.08em] text-ink">
       {{ park.name }}
     </h2>

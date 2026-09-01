@@ -1,0 +1,21 @@
+{
+  "id": "prk-walibi-rhone-alpes",
+  "slug": "walibi-rhone-alpes",
+  "name": "Walibi Rhône-Alpes",
+  "resort": null,
+  "location": {
+    "city": "Les Avenières",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1979,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 667000,
+    "year": 2024
+  },
+  "logo": null,
+  "description": "An amusement park in the Isère opened in 1979 as Avenir Land and part of the Walibi chain since 1998.",
+  "maps": []
+}

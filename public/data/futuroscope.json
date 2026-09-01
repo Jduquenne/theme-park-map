@@ -1,0 +1,21 @@
+{
+  "id": "prk-futuroscope",
+  "slug": "futuroscope",
+  "name": "Futuroscope",
+  "resort": null,
+  "location": {
+    "city": "Chasseneuil-du-Poitou",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1987,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 1975000,
+    "year": 2023
+  },
+  "logo": null,
+  "description": "A technology and multimedia theme park near Poitiers, opened in 1987.",
+  "maps": []
+}

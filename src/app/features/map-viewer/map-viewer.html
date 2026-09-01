@@ -17,6 +17,9 @@
       }
       {{ park.location.city }}, {{ park.location.country }}
     </p>
+    @if (attendanceLabel(); as attendance) {
+      <p class="text-xs text-ink-soft/80">{{ attendance }}</p>
+    }
   </header>
 
   <div class="flex min-h-0 flex-1">

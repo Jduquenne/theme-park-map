@@ -1,0 +1,18 @@
+{
+  "id": "prk-mirapolis",
+  "slug": "mirapolis",
+  "name": "Mirapolis",
+  "resort": null,
+  "location": {
+    "city": "Courdimanche",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1987,
+    "to": 1991
+  },
+  "attendance": null,
+  "logo": null,
+  "description": "A short-lived theme park in the Val-d'Oise based on French fairy tales and fables, open from 1987 to 1991.",
+  "maps": []
+}

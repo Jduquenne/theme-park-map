@@ -1,0 +1,18 @@
+{
+  "id": "prk-zygofolis",
+  "slug": "zygofolis",
+  "name": "Zygofolis",
+  "resort": null,
+  "location": {
+    "city": "Nice",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1987,
+    "to": 1991
+  },
+  "attendance": null,
+  "logo": null,
+  "description": "An amusement park on the outskirts of Nice, open from 1987 to 1991.",
+  "maps": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "prk-puy-du-fou",
+  "slug": "puy-du-fou",
+  "name": "Puy du Fou",
+  "resort": null,
+  "location": {
+    "city": "Les Epesses",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1989,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 2500000,
+    "year": 2023
+  },
+  "logo": null,
+  "description": "A historical theme park in the Vendée built around large-scale live shows, with the Grand Parc opening in 1989.",
+  "maps": []
+}

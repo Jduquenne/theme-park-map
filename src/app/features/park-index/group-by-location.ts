@@ -14,10 +14,10 @@ export function groupByCountry(parks: readonly ParkSummary[]): ParkGroup[] {
   }
 
   return [...byCountry.entries()]
-    .map(([country, group]) => ({ country, parks: group.sort(compareByCityThenName) }))
+    .map(([country, group]) => ({ country, parks: group.sort(compareByName) }))
     .sort((a, b) => a.country.localeCompare(b.country));
 }
 
-function compareByCityThenName(a: ParkSummary, b: ParkSummary): number {
-  return a.location.city.localeCompare(b.location.city) || a.name.localeCompare(b.name);
+function compareByName(a: ParkSummary, b: ParkSummary): number {
+  return a.name.localeCompare(b.name) || a.location.city.localeCompare(b.location.city);
 }

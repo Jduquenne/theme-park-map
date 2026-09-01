@@ -1,0 +1,21 @@
+{
+  "id": "prk-le-pal",
+  "slug": "le-pal",
+  "name": "Le PAL",
+  "resort": null,
+  "location": {
+    "city": "Saint-Pourçain-sur-Besbre",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1973,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 700000,
+    "year": 2025
+  },
+  "logo": null,
+  "description": "A combined amusement park and zoo in the Allier, opened in 1973.",
+  "maps": []
+}

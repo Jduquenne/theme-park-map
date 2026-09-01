@@ -1,0 +1,18 @@
+{
+  "id": "prk-playmobil-funpark-fresnes",
+  "slug": "playmobil-funpark-fresnes",
+  "name": "Playmobil FunPark",
+  "resort": null,
+  "location": {
+    "city": "Fresnes",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1999,
+    "to": 2022
+  },
+  "attendance": null,
+  "logo": null,
+  "description": "A Playmobil-branded indoor and outdoor play park in the Val-de-Marne, open from 1999 to 2022.",
+  "maps": []
+}

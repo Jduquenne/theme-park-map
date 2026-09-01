@@ -1,0 +1,21 @@
+{
+  "id": "prk-vulcania",
+  "slug": "vulcania",
+  "name": "Vulcania",
+  "resort": null,
+  "location": {
+    "city": "Saint-Ours-les-Roches",
+    "country": "France"
+  },
+  "operating": {
+    "from": 2002,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 389000,
+    "year": 2024
+  },
+  "logo": null,
+  "description": "A volcano and earth-sciences theme park in the Auvergne, opened in 2002.",
+  "maps": []
+}

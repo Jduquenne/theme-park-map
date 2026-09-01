@@ -1,0 +1,21 @@
+{
+  "id": "prk-disneyland-park",
+  "slug": "disneyland-park",
+  "name": "Disneyland Park",
+  "resort": "Disneyland Paris",
+  "location": {
+    "city": "Marne-la-Vallée",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1992,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 10400000,
+    "year": 2023
+  },
+  "logo": null,
+  "description": "The flagship Disney theme park in Europe, opened as Euro Disney in 1992 east of Paris.",
+  "maps": []
+}

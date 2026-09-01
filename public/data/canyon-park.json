@@ -1,0 +1,18 @@
+{
+  "id": "prk-canyon-park",
+  "slug": "canyon-park",
+  "name": "Canyon Park",
+  "resort": null,
+  "location": {
+    "city": "Épretot",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1976,
+    "to": 2004
+  },
+  "attendance": null,
+  "logo": null,
+  "description": "An amusement park in the Seine-Maritime, open from 1976 to 2004.",
+  "maps": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "prk-marineland-antibes",
+  "slug": "marineland-antibes",
+  "name": "Marineland d'Antibes",
+  "resort": null,
+  "location": {
+    "city": "Antibes",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1970,
+    "to": 2025
+  },
+  "attendance": {
+    "visitors": 425000,
+    "year": 2024
+  },
+  "logo": null,
+  "description": "A marine mammal park and aquarium on the Côte d'Azur, opened in 1970 and permanently closed in January 2025.",
+  "maps": []
+}

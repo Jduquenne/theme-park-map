@@ -101,6 +101,20 @@ export class MapViewer {
     return state.status === 'loaded' ? state.value : null;
   });
 
+  readonly attendanceLabel = computed(() => {
+    const attendance = this.park()?.attendance;
+    if (!attendance) {
+      return null;
+    }
+    const count =
+      attendance.visitors >= 1_000_000
+        ? `${+(attendance.visitors / 1_000_000).toFixed(1)}M`
+        : `${Math.round(attendance.visitors / 1_000)}K`;
+    return attendance.year
+      ? `≈ ${count} visitors (${attendance.year})`
+      : `≈ ${count} visitors / year`;
+  });
+
   readonly maps = computed(() => this.park()?.maps ?? []);
 
   readonly selectedMap = computed<HistoricalMap | null>(() => {

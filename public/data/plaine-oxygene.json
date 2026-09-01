@@ -1,0 +1,21 @@
+{
+  "id": "prk-plaine-oxygene",
+  "slug": "plaine-oxygene",
+  "name": "Plaine Oxygène",
+  "resort": null,
+  "location": {
+    "city": "Le Mesnil-Amelot",
+    "country": "France"
+  },
+  "operating": {
+    "from": 2010,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 350000,
+    "year": 2018
+  },
+  "logo": null,
+  "description": "An outdoor water park and leisure area north-east of Paris, opened in 2010.",
+  "maps": []
+}

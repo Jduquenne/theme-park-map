@@ -1,0 +1,21 @@
+{
+  "id": "prk-walygator-sud-ouest",
+  "slug": "walygator-sud-ouest",
+  "name": "Walygator Sud-Ouest",
+  "resort": null,
+  "location": {
+    "city": "Roquefort",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1992,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 300000,
+    "year": 2017
+  },
+  "logo": null,
+  "description": "An amusement park in the Lot-et-Garonne, opened in 1992 as Walibi Aquitaine.",
+  "maps": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "prk-aquaboulevard",
+  "slug": "aquaboulevard",
+  "name": "Aquaboulevard",
+  "resort": null,
+  "location": {
+    "city": "Paris",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1989,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 1000000,
+    "year": 2011
+  },
+  "logo": null,
+  "description": "A large indoor water park and leisure complex in the 15th arrondissement of Paris, opened in 1989.",
+  "maps": []
+}

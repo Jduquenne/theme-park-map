@@ -1,0 +1,21 @@
+{
+  "id": "prk-cite-de-l-espace",
+  "slug": "cite-de-l-espace",
+  "name": "Cité de l'espace",
+  "resort": null,
+  "location": {
+    "city": "Toulouse",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1997,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 452000,
+    "year": 2024
+  },
+  "logo": null,
+  "description": "A space-themed science park in Toulouse, opened in 1997.",
+  "maps": []
+}

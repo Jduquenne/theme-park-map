@@ -21,11 +21,11 @@ import { ParkIndex } from '../park-index/park-index';
         Browse historical theme-park plans across the decades. Pick a park from the index on the
         left to open its maps, points of interest and timeline.
       </p>
-      @if (stats(); as stats) {
+      @if (summary(); as summary) {
         <p
           class="mt-6 font-display text-xs font-semibold uppercase tracking-[0.14em] text-ink-soft"
         >
-          {{ stats.parks }} parks · {{ stats.countries }} countries
+          {{ summary }}
         </p>
       }
     </div>
@@ -38,12 +38,15 @@ export class Welcome {
     initialValue: { status: 'loading' } as RequestState<ParkSummary[]>,
   });
 
-  protected readonly stats = computed(() => {
+  protected readonly summary = computed(() => {
     const state = this.request();
     if (state.status !== 'loaded') {
       return null;
     }
-    const countries = new Set(state.value.map((park) => park.location.country));
-    return { parks: state.value.length, countries: countries.size };
+    const parkCount = state.value.length;
+    const countryCount = new Set(state.value.map((park) => park.location.country)).size;
+    const parks = `${parkCount} park${parkCount === 1 ? '' : 's'}`;
+    const countries = `${countryCount} countr${countryCount === 1 ? 'y' : 'ies'}`;
+    return `${parks} · ${countries}`;
   });
 }

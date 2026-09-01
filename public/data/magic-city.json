@@ -1,0 +1,18 @@
+{
+  "id": "prk-magic-city",
+  "slug": "magic-city",
+  "name": "Magic City",
+  "resort": null,
+  "location": {
+    "city": "Paris",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1911,
+    "to": 1934
+  },
+  "attendance": null,
+  "logo": null,
+  "description": "An amusement park on the Left Bank of the Seine in Paris, open from 1911 to 1934.",
+  "maps": []
+}

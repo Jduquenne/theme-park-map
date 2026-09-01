@@ -1,0 +1,18 @@
+{
+  "id": "prk-parc-oceanique-cousteau",
+  "slug": "parc-oceanique-cousteau",
+  "name": "Océanique Cousteau",
+  "resort": null,
+  "location": {
+    "city": "Paris",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1989,
+    "to": 1992
+  },
+  "attendance": null,
+  "logo": null,
+  "description": "An ocean-discovery attraction at the Forum des Halles in Paris, open from 1989 to 1992.",
+  "maps": []
+}

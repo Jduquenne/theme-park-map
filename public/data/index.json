@@ -1,29 +1,706 @@
 [
   {
-    "id": "prk-aurora-gardens",
-    "slug": "aurora-gardens",
-    "name": "Aurora Gardens",
-    "resort": "Northbridge Resort",
-    "location": { "city": "Northbridge", "country": "Canada" },
-    "mappedPeriod": { "from": 1976, "to": null },
-    "mapCount": 2
+    "id": "prk-disneyland-park",
+    "slug": "disneyland-park",
+    "name": "Disneyland Park",
+    "resort": "Disneyland Paris",
+    "location": {
+      "city": "Marne-la-Vallée",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1992,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 10400000,
+      "year": 2023
+    },
+    "logo": null,
+    "mapCount": 0
   },
   {
-    "id": "prk-cedar-hollow",
-    "slug": "cedar-hollow",
-    "name": "Cedar Hollow",
-    "resort": null,
-    "location": { "city": "Kingsport", "country": "Canada" },
-    "mappedPeriod": { "from": 1961, "to": 2004 },
-    "mapCount": 1
+    "id": "prk-disney-adventure-world",
+    "slug": "disney-adventure-world",
+    "name": "Disney Adventure World",
+    "resort": "Disneyland Paris",
+    "location": {
+      "city": "Marne-la-Vallée",
+      "country": "France"
+    },
+    "operating": {
+      "from": 2002,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 5700000,
+      "year": 2023
+    },
+    "logo": null,
+    "mapCount": 0
   },
   {
-    "id": "prk-marlowe-pier",
-    "slug": "marlowe-pier",
-    "name": "Marlowe Pier Pleasure Grounds",
+    "id": "prk-parc-asterix",
+    "slug": "parc-asterix",
+    "name": "Astérix",
     "resort": null,
-    "location": { "city": "Marlowe", "country": "United Kingdom" },
-    "mappedPeriod": { "from": 1908, "to": null },
-    "mapCount": 1
+    "location": {
+      "city": "Plailly",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1989,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 2815000,
+      "year": 2023
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-puy-du-fou",
+    "slug": "puy-du-fou",
+    "name": "Puy du Fou",
+    "resort": null,
+    "location": {
+      "city": "Les Epesses",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1989,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 2500000,
+      "year": 2023
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-futuroscope",
+    "slug": "futuroscope",
+    "name": "Futuroscope",
+    "resort": null,
+    "location": {
+      "city": "Chasseneuil-du-Poitou",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1987,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 1975000,
+      "year": 2023
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-jardin-d-acclimatation",
+    "slug": "jardin-d-acclimatation",
+    "name": "Jardin d'Acclimatation",
+    "resort": null,
+    "location": {
+      "city": "Paris",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1860,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 1500000,
+      "year": 2024
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-azur-park",
+    "slug": "azur-park",
+    "name": "Azur Park",
+    "resort": null,
+    "location": {
+      "city": "Gassin",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1968,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 1000000,
+      "year": null
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-aquaboulevard",
+    "slug": "aquaboulevard",
+    "name": "Aquaboulevard",
+    "resort": null,
+    "location": {
+      "city": "Paris",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1989,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 1000000,
+      "year": 2011
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-nigloland",
+    "slug": "nigloland",
+    "name": "Nigloland",
+    "resort": null,
+    "location": {
+      "city": "Dolancourt",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1987,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 710000,
+      "year": 2025
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-le-pal",
+    "slug": "le-pal",
+    "name": "Le PAL",
+    "resort": null,
+    "location": {
+      "city": "Saint-Pourçain-sur-Besbre",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1973,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 700000,
+      "year": 2025
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-walibi-rhone-alpes",
+    "slug": "walibi-rhone-alpes",
+    "name": "Walibi Rhône-Alpes",
+    "resort": null,
+    "location": {
+      "city": "Les Avenières",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1979,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 667000,
+      "year": 2024
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-terra-botanica",
+    "slug": "terra-botanica",
+    "name": "Terra Botanica",
+    "resort": null,
+    "location": {
+      "city": "Angers",
+      "country": "France"
+    },
+    "operating": {
+      "from": 2010,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 587000,
+      "year": 2024
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-cite-de-l-espace",
+    "slug": "cite-de-l-espace",
+    "name": "Cité de l'espace",
+    "resort": null,
+    "location": {
+      "city": "Toulouse",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1997,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 452000,
+      "year": 2024
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-marineland-antibes",
+    "slug": "marineland-antibes",
+    "name": "Marineland d'Antibes",
+    "resort": null,
+    "location": {
+      "city": "Antibes",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1970,
+      "to": 2025
+    },
+    "attendance": {
+      "visitors": 425000,
+      "year": 2024
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-ok-corral",
+    "slug": "ok-corral",
+    "name": "OK Corral",
+    "resort": null,
+    "location": {
+      "city": "Cuges-les-Pins",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1966,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 400000,
+      "year": 2017
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-vulcania",
+    "slug": "vulcania",
+    "name": "Vulcania",
+    "resort": null,
+    "location": {
+      "city": "Saint-Ours-les-Roches",
+      "country": "France"
+    },
+    "operating": {
+      "from": 2002,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 389000,
+      "year": 2024
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-parc-bagatelle",
+    "slug": "parc-bagatelle",
+    "name": "Bagatelle",
+    "resort": null,
+    "location": {
+      "city": "Rang-du-Fliers",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1955,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 384000,
+      "year": 2022
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-la-mer-de-sable",
+    "slug": "la-mer-de-sable",
+    "name": "La Mer de Sable",
+    "resort": null,
+    "location": {
+      "city": "Ermenonville",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1963,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 361000,
+      "year": 2024
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-parc-saint-paul",
+    "slug": "parc-saint-paul",
+    "name": "Saint-Paul",
+    "resort": null,
+    "location": {
+      "city": "Saint-Paul",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1983,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 360000,
+      "year": 2024
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-plaine-oxygene",
+    "slug": "plaine-oxygene",
+    "name": "Plaine Oxygène",
+    "resort": null,
+    "location": {
+      "city": "Le Mesnil-Amelot",
+      "country": "France"
+    },
+    "operating": {
+      "from": 2010,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 350000,
+      "year": 2018
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-parc-spirou",
+    "slug": "parc-spirou",
+    "name": "Spirou",
+    "resort": null,
+    "location": {
+      "city": "Monteux",
+      "country": "France"
+    },
+    "operating": {
+      "from": 2018,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 320000,
+      "year": 2023
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-la-cite-de-la-mer",
+    "slug": "la-cite-de-la-mer",
+    "name": "La Cité de la Mer",
+    "resort": null,
+    "location": {
+      "city": "Cherbourg-en-Cotentin",
+      "country": "France"
+    },
+    "operating": {
+      "from": 2002,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 305910,
+      "year": 2024
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-walygator-sud-ouest",
+    "slug": "walygator-sud-ouest",
+    "name": "Walygator Sud-Ouest",
+    "resort": null,
+    "location": {
+      "city": "Roquefort",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1992,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 300000,
+      "year": 2017
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-fraispertuis-city",
+    "slug": "fraispertuis-city",
+    "name": "Fraispertuis-City",
+    "resort": null,
+    "location": {
+      "city": "Jeanménil",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1966,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 281000,
+      "year": 2024
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-walygator-grand-est",
+    "slug": "walygator-grand-est",
+    "name": "Walygator Grand Est",
+    "resort": null,
+    "location": {
+      "city": "Maizières-lès-Metz",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1989,
+      "to": null
+    },
+    "attendance": {
+      "visitors": 275000,
+      "year": 2024
+    },
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-mirapolis",
+    "slug": "mirapolis",
+    "name": "Mirapolis",
+    "resort": null,
+    "location": {
+      "city": "Courdimanche",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1987,
+      "to": 1991
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-zygofolis",
+    "slug": "zygofolis",
+    "name": "Zygofolis",
+    "resort": null,
+    "location": {
+      "city": "Nice",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1987,
+      "to": 1991
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-luna-park-paris",
+    "slug": "luna-park-paris",
+    "name": "Luna Park",
+    "resort": null,
+    "location": {
+      "city": "Paris",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1909,
+      "to": 1946
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-magic-city",
+    "slug": "magic-city",
+    "name": "Magic City",
+    "resort": null,
+    "location": {
+      "city": "Paris",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1911,
+      "to": 1934
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-la-vallee-des-peaux-rouges",
+    "slug": "la-vallee-des-peaux-rouges",
+    "name": "La Vallée des Peaux-Rouges",
+    "resort": null,
+    "location": {
+      "city": "Fleurines",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1966,
+      "to": 1988
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-aqualud",
+    "slug": "aqualud",
+    "name": "Aqualud",
+    "resort": null,
+    "location": {
+      "city": "Le Touquet-Paris-Plage",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1985,
+      "to": 2019
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-playmobil-funpark-fresnes",
+    "slug": "playmobil-funpark-fresnes",
+    "name": "Playmobil FunPark",
+    "resort": null,
+    "location": {
+      "city": "Fresnes",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1999,
+      "to": 2022
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-parc-oceanique-cousteau",
+    "slug": "parc-oceanique-cousteau",
+    "name": "Océanique Cousteau",
+    "resort": null,
+    "location": {
+      "city": "Paris",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1989,
+      "to": 1992
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-canyon-park",
+    "slug": "canyon-park",
+    "name": "Canyon Park",
+    "resort": null,
+    "location": {
+      "city": "Épretot",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1976,
+      "to": 2004
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-parc-avenue",
+    "slug": "parc-avenue",
+    "name": "Avenue",
+    "resort": null,
+    "location": {
+      "city": "Lanas",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1990,
+      "to": 2014
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-florida-parc",
+    "slug": "florida-parc",
+    "name": "Florida Parc",
+    "resort": null,
+    "location": {
+      "city": "Brochon",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1981,
+      "to": 2017
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
+  },
+  {
+    "id": "prk-tivoli-paris",
+    "slug": "tivoli-paris",
+    "name": "Tivoli",
+    "resort": null,
+    "location": {
+      "city": "Paris",
+      "country": "France"
+    },
+    "operating": {
+      "from": 1730,
+      "to": 1842
+    },
+    "attendance": null,
+    "logo": null,
+    "mapCount": 0
   }
 ]

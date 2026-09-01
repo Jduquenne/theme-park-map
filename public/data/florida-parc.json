@@ -1,0 +1,18 @@
+{
+  "id": "prk-florida-parc",
+  "slug": "florida-parc",
+  "name": "Florida Parc",
+  "resort": null,
+  "location": {
+    "city": "Brochon",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1981,
+    "to": 2017
+  },
+  "attendance": null,
+  "logo": null,
+  "description": "A combined amusement and animal park in the Côte-d'Or, open from 1981 to 2017.",
+  "maps": []
+}

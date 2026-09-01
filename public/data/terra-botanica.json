@@ -1,0 +1,21 @@
+{
+  "id": "prk-terra-botanica",
+  "slug": "terra-botanica",
+  "name": "Terra Botanica",
+  "resort": null,
+  "location": {
+    "city": "Angers",
+    "country": "France"
+  },
+  "operating": {
+    "from": 2010,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 587000,
+    "year": 2024
+  },
+  "logo": null,
+  "description": "A botanical theme park in Angers, opened in 2010.",
+  "maps": []
+}

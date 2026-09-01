@@ -1,0 +1,21 @@
+{
+  "id": "prk-parc-saint-paul",
+  "slug": "parc-saint-paul",
+  "name": "Saint-Paul",
+  "resort": null,
+  "location": {
+    "city": "Saint-Paul",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1983,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 360000,
+    "year": 2024
+  },
+  "logo": null,
+  "description": "A family amusement park in the Oise, opened in 1983.",
+  "maps": []
+}

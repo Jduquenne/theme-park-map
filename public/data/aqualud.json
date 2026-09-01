@@ -1,0 +1,18 @@
+{
+  "id": "prk-aqualud",
+  "slug": "aqualud",
+  "name": "Aqualud",
+  "resort": null,
+  "location": {
+    "city": "Le Touquet-Paris-Plage",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1985,
+    "to": 2019
+  },
+  "attendance": null,
+  "logo": null,
+  "description": "A seafront water park at Le Touquet, open from 1985 to 2019.",
+  "maps": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "prk-ok-corral",
+  "slug": "ok-corral",
+  "name": "OK Corral",
+  "resort": null,
+  "location": {
+    "city": "Cuges-les-Pins",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1966,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 400000,
+    "year": 2017
+  },
+  "logo": null,
+  "description": "A Western-themed amusement park between Marseille and Toulon, opened in 1966.",
+  "maps": []
+}

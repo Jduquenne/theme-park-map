@@ -1,0 +1,21 @@
+{
+  "id": "prk-disney-adventure-world",
+  "slug": "disney-adventure-world",
+  "name": "Disney Adventure World",
+  "resort": "Disneyland Paris",
+  "location": {
+    "city": "Marne-la-Vallée",
+    "country": "France"
+  },
+  "operating": {
+    "from": 2002,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 5700000,
+    "year": 2023
+  },
+  "logo": null,
+  "description": "Disneyland Paris' second gate, opened in 2002 as the Walt Disney Studios Park and rebranded Disney Adventure World in 2025.",
+  "maps": []
+}

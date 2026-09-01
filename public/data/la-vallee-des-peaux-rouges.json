@@ -1,0 +1,18 @@
+{
+  "id": "prk-la-vallee-des-peaux-rouges",
+  "slug": "la-vallee-des-peaux-rouges",
+  "name": "La Vallée des Peaux-Rouges",
+  "resort": null,
+  "location": {
+    "city": "Fleurines",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1966,
+    "to": 1988
+  },
+  "attendance": null,
+  "logo": null,
+  "description": "A Western-themed park in the Oise forest, open from 1966 to 1988.",
+  "maps": []
+}

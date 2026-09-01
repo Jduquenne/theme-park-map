@@ -1,0 +1,21 @@
+{
+  "id": "prk-la-mer-de-sable",
+  "slug": "la-mer-de-sable",
+  "name": "La Mer de Sable",
+  "resort": null,
+  "location": {
+    "city": "Ermenonville",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1963,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 361000,
+    "year": 2024
+  },
+  "logo": null,
+  "description": "A desert- and Western-themed park set on natural sand dunes in the Oise, opened in 1963.",
+  "maps": []
+}

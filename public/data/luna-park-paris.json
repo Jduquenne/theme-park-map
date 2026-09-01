@@ -1,0 +1,18 @@
+{
+  "id": "prk-luna-park-paris",
+  "slug": "luna-park-paris",
+  "name": "Luna Park",
+  "resort": null,
+  "location": {
+    "city": "Paris",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1909,
+    "to": 1946
+  },
+  "attendance": null,
+  "logo": null,
+  "description": "A large amusement park at Porte Maillot in Paris, open from 1909 to 1946.",
+  "maps": []
+}

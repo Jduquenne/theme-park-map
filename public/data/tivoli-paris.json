@@ -1,0 +1,18 @@
+{
+  "id": "prk-tivoli-paris",
+  "slug": "tivoli-paris",
+  "name": "Tivoli",
+  "resort": null,
+  "location": {
+    "city": "Paris",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1730,
+    "to": 1842
+  },
+  "attendance": null,
+  "logo": null,
+  "description": "An 18th-century pleasure garden in Paris with rides and attractions, open in various forms from 1730 to 1842.",
+  "maps": []
+}

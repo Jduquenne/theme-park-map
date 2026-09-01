@@ -1,0 +1,21 @@
+{
+  "id": "prk-fraispertuis-city",
+  "slug": "fraispertuis-city",
+  "name": "Fraispertuis-City",
+  "resort": null,
+  "location": {
+    "city": "Jeanménil",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1966,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 281000,
+    "year": 2024
+  },
+  "logo": null,
+  "description": "A Western-themed family park in the Vosges, opened in 1966.",
+  "maps": []
+}

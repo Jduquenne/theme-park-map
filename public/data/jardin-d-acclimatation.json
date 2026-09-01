@@ -1,0 +1,21 @@
+{
+  "id": "prk-jardin-d-acclimatation",
+  "slug": "jardin-d-acclimatation",
+  "name": "Jardin d'Acclimatation",
+  "resort": null,
+  "location": {
+    "city": "Paris",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1860,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 1500000,
+    "year": 2024
+  },
+  "logo": null,
+  "description": "A historic amusement and pleasure garden in the Bois de Boulogne, opened in 1860 and extensively renovated in 2018.",
+  "maps": []
+}

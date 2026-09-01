@@ -1,0 +1,21 @@
+{
+  "id": "prk-parc-spirou",
+  "slug": "parc-spirou",
+  "name": "Spirou",
+  "resort": null,
+  "location": {
+    "city": "Monteux",
+    "country": "France"
+  },
+  "operating": {
+    "from": 2018,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 320000,
+    "year": 2023
+  },
+  "logo": null,
+  "description": "A theme park based on the Spirou comics, opened in 2018 in the Vaucluse.",
+  "maps": []
+}

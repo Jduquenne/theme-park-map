@@ -1,0 +1,21 @@
+{
+  "id": "prk-parc-bagatelle",
+  "slug": "parc-bagatelle",
+  "name": "Bagatelle",
+  "resort": null,
+  "location": {
+    "city": "Rang-du-Fliers",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1955,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 384000,
+    "year": 2022
+  },
+  "logo": null,
+  "description": "One of France's oldest amusement parks, on the Opal Coast, operating since 1955.",
+  "maps": []
+}

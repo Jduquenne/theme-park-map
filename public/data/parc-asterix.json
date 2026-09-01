@@ -1,0 +1,21 @@
+{
+  "id": "prk-parc-asterix",
+  "slug": "parc-asterix",
+  "name": "Astérix",
+  "resort": null,
+  "location": {
+    "city": "Plailly",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1989,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 2815000,
+    "year": 2023
+  },
+  "logo": null,
+  "description": "A theme park based on the Astérix comics, opened in 1989 in the Oise north of Paris.",
+  "maps": []
+}

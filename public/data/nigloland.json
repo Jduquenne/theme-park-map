@@ -1,0 +1,21 @@
+{
+  "id": "prk-nigloland",
+  "slug": "nigloland",
+  "name": "Nigloland",
+  "resort": null,
+  "location": {
+    "city": "Dolancourt",
+    "country": "France"
+  },
+  "operating": {
+    "from": 1987,
+    "to": null
+  },
+  "attendance": {
+    "visitors": 710000,
+    "year": 2025
+  },
+  "logo": null,
+  "description": "A family theme park in the Aube, opened in 1987 and named after its hedgehog mascot.",
+  "maps": []
+}

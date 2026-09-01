@@ -1,3 +1,4 @@
+import { Attendance } from './attendance';
 import { ParkLocation } from './park-location';
 import { YearRange } from './year-range';
 
@@ -7,6 +8,8 @@ export interface ParkSummary {
   name: string;
   resort: string | null;
   location: ParkLocation;
-  mappedPeriod: YearRange;
+  operating: YearRange;
+  attendance: Attendance | null;
+  logo: string | null;
   mapCount: number;
 }

@@ -26,6 +26,41 @@
       role="region"
       aria-label="Historical park map"
     >
+      <div class="absolute inset-x-3 top-3 z-[1000] flex items-start gap-2 lg:hidden">
+        <button
+          #menuButton
+          type="button"
+          (click)="openMenu()"
+          aria-haspopup="dialog"
+          [attr.aria-expanded]="menuOpen()"
+          aria-label="Open the parks index"
+          class="flex size-10 shrink-0 items-center justify-center rounded-full border border-line bg-card text-ink-soft shadow-md hover:bg-parchment hover:text-ink"
+        >
+          <svg
+            viewBox="0 0 16 16"
+            class="size-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M2 4h12M2 8h12M2 12h12" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        @if (timeline(); as range) {
+          <app-time-stepper
+            class="min-w-0 flex-1"
+            [maps]="maps()"
+            [selectedMapId]="selectedMap()?.id ?? null"
+            [from]="range.from"
+            [to]="range.to"
+            [year]="activeYear()"
+            (mapPicked)="selectMap($event)"
+            (yearPicked)="year.set($event)"
+          />
+        }
+      </div>
+
       @if (selectedMap(); as current) {
         @defer (on immediate) {
           <app-leaflet-map
@@ -38,37 +73,6 @@
         } @placeholder {
           <div class="absolute inset-0 animate-pulse bg-[#e3e0d4]"></div>
         }
-
-        <div class="absolute inset-x-3 top-3 z-[1000] flex items-start gap-2 lg:hidden">
-          <a
-            routerLink="/"
-            aria-label="Back to the park archive"
-            class="flex size-10 shrink-0 items-center justify-center rounded-full border border-line bg-card text-ink-soft shadow-md hover:bg-parchment hover:text-ink"
-          >
-            <svg
-              viewBox="0 0 16 16"
-              class="size-4"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M10 3l-5 5 5 5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-
-          @if (timeline(); as range) {
-            <app-time-stepper
-              class="min-w-0 flex-1"
-              [maps]="maps()"
-              [selectedMapId]="selectedMap()?.id ?? null"
-              [from]="range.from"
-              [to]="range.to"
-              [year]="activeYear()"
-              (mapPicked)="selectMap($event)"
-              (yearPicked)="year.set($event)"
-            />
-          }
-        </div>
 
         @if (timeline(); as range) {
           <app-time-bar
@@ -134,6 +138,8 @@
       />
     }
   </div>
+
+  <app-park-menu [open]="menuOpen()" (closed)="closeMenu()" />
 
 } @else if (status() === 'error') {
   <div role="alert" class="m-6 rounded-lg border border-red-300 bg-red-50 p-4">

@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   computed,
+  effect,
   inject,
   input,
   signal,
@@ -24,6 +25,7 @@ import { Skeleton } from '../../shared/components/skeleton';
 import { LeafletMap } from './leaflet-map';
 import { TimeBar } from './time-bar';
 import { MobileBottomSheet } from './mobile/mobile-bottom-sheet';
+import { ParkMenu } from './mobile/park-menu';
 import { TimeStepper } from './mobile/time-stepper';
 import { PoiDetail } from './poi/poi-detail';
 import { PoiLegendEntry } from './poi/poi-legend';
@@ -50,6 +52,7 @@ const categorySetParam: QueryParamCodec<ReadonlySet<PoiCategory>> = {
     TimeBar,
     TimeStepper,
     MobileBottomSheet,
+    ParkMenu,
     PoiDetail,
     PoiList,
     Skeleton,
@@ -64,6 +67,9 @@ export class MapViewer {
 
   private readonly mapRegion = viewChild<ElementRef<HTMLElement>>('mapRegion');
   readonly isFullscreen = signal(false);
+
+  private readonly menuButton = viewChild<ElementRef<HTMLButtonElement>>('menuButton');
+  readonly menuOpen = signal(false);
 
   private readonly reload = signal(0);
 
@@ -148,8 +154,24 @@ export class MapViewer {
     return id === null ? null : (this.visiblePois().find((poi) => poi.id === id) ?? null);
   });
 
+  constructor() {
+    effect(() => {
+      this.slug();
+      this.menuOpen.set(false);
+    });
+  }
+
   retry(): void {
     this.reload.update((n) => n + 1);
+  }
+
+  openMenu(): void {
+    this.menuOpen.set(true);
+  }
+
+  closeMenu(): void {
+    this.menuOpen.set(false);
+    this.menuButton()?.nativeElement.focus();
   }
 
   selectMap(id: string): void {

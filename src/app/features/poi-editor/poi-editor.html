@@ -1,0 +1,239 @@
+<header
+  class="flex flex-wrap items-center gap-3 border-b border-line bg-card px-4 py-2"
+>
+  <span
+    class="rounded bg-tan px-2 py-0.5 font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-soft"
+  >
+    Dev · POI editor
+  </span>
+  <span class="font-display text-sm font-semibold uppercase tracking-[0.06em] text-ink">
+    {{ slug() }}
+  </span>
+
+  <div class="ml-auto flex items-center gap-2">
+    @if (dirty()) {
+      <span class="text-xs text-denim">Unsaved changes</span>
+    }
+    <button
+      type="button"
+      (click)="openFile()"
+      class="rounded border border-line bg-card px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-ink hover:bg-parchment"
+    >
+      Open public/data/{{ slug() }}.json
+    </button>
+    <button
+      type="button"
+      [disabled]="!fileHandle() || !dirty() || saving()"
+      (click)="save()"
+      class="rounded bg-denim px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-white hover:bg-denim-ink disabled:cursor-not-allowed disabled:opacity-40"
+    >
+      {{ saving() ? 'Saving…' : 'Save' }}
+    </button>
+  </div>
+</header>
+
+@if (!fileSystemAccessSupported) {
+  <p class="border-b border-tan-line bg-tan px-4 py-2 text-sm text-ink-soft">
+    This tool needs the File System Access API — open it in Chrome or Edge.
+  </p>
+}
+
+@if (loadError(); as error) {
+  <p class="border-b border-tan-line bg-tan px-4 py-2 text-sm text-ink-soft">{{ error }}</p>
+}
+
+@if (slugMismatch()) {
+  <p class="border-b border-tan-line bg-tan px-4 py-2 text-sm text-ink-soft">
+    The opened file's slug ("{{ park()?.slug }}") does not match the route ("{{ slug() }}").
+  </p>
+}
+
+@if (!park()) {
+  <div class="flex flex-1 items-center justify-center p-8 text-center text-sm text-ink-soft">
+    Open public/data/{{ slug() }}.json to start editing its historical maps' attractions.
+  </div>
+} @else if (!selectedMap()) {
+  <div class="flex flex-1 items-center justify-center p-8 text-center text-sm text-ink-soft">
+    This park has no maps yet — add one to public/data/{{ slug() }}.json first.
+  </div>
+} @else {
+  <div class="flex min-h-0 flex-1">
+    <div class="relative flex min-h-0 flex-1 flex-col">
+      <div class="flex flex-wrap items-center gap-2 border-b border-line bg-card px-4 py-2">
+        <label class="text-xs font-semibold uppercase tracking-[0.08em] text-ink-soft" for="map-select">
+          Map
+        </label>
+        <select
+          id="map-select"
+          class="rounded border border-line bg-card px-2 py-1 text-sm text-ink"
+          [value]="selectedMap()!.id"
+          (change)="selectMap($any($event.target).value)"
+        >
+          @for (map of maps(); track map.id) {
+            <option [value]="map.id">{{ map.title }} ({{ map.period.from }})</option>
+          }
+        </select>
+
+        @if (copySources(); as sources) {
+          @if (sources.length > 0) {
+            <label class="text-xs font-semibold uppercase tracking-[0.08em] text-ink-soft" for="copy-source">
+              Copy from
+            </label>
+            <select
+              id="copy-source"
+              #copySource
+              class="rounded border border-line bg-card px-2 py-1 text-sm text-ink"
+            >
+              @for (map of sources; track map.id) {
+                <option [value]="map.id" [selected]="map.id === defaultCopySourceId()">
+                  {{ map.title }} ({{ map.period.from }}) · {{ map.pointsOfInterest.length }}
+                </option>
+              }
+            </select>
+            <button
+              type="button"
+              (click)="copyFrom(copySource.value)"
+              class="rounded border border-line bg-card px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-ink hover:bg-parchment"
+            >
+              Copy attractions
+            </button>
+          }
+        }
+
+        <button
+          type="button"
+          (click)="togglePlacement()"
+          [attr.aria-pressed]="placementActive()"
+          class="ml-auto rounded border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em]"
+          [class]="
+            placementActive()
+              ? 'border-denim bg-denim text-white'
+              : 'border-line bg-card text-ink hover:bg-parchment'
+          "
+        >
+          {{ placementActive() ? 'Click the map to place…' : '+ Add attraction' }}
+        </button>
+      </div>
+
+      <div class="relative min-h-0 flex-1">
+        <app-leaflet-map
+          class="absolute inset-0"
+          [image]="selectedMap()!.image"
+          [pointsOfInterest]="pointsOfInterest()"
+          [selectedPoiId]="selectedPoiId()"
+          [editable]="true"
+          [placementActive]="placementActive()"
+          (poiPicked)="pickPoi($event)"
+          (positionPicked)="placePoi($event)"
+          (poiMoved)="movePoi($event)"
+        />
+      </div>
+    </div>
+
+    <aside class="flex h-full w-80 flex-col border-l border-line bg-card">
+      <div class="border-b border-line px-4 py-3">
+        <h3 class="font-display text-sm font-semibold uppercase tracking-[0.12em] text-ink">
+          Attractions <span class="font-normal text-ink-soft/60">({{ pointsOfInterest().length }})</span>
+        </h3>
+      </div>
+
+      <div class="min-h-0 flex-1 overflow-y-auto">
+        @for (poi of pointsOfInterest(); track poi.id) {
+          <button
+            type="button"
+            (click)="pickPoi(poi.id)"
+            class="flex w-full items-center justify-between gap-2 border-b border-line px-4 py-2 text-left text-sm"
+            [class]="poi.id === selectedPoiId() ? 'bg-parchment text-ink' : 'text-ink-soft hover:bg-parchment/60'"
+          >
+            <span class="truncate">{{ poi.name }}</span>
+            <span class="shrink-0 text-[11px] uppercase tracking-[0.06em] text-ink-soft/70">
+              {{ categoryLabel[poi.category] }}
+            </span>
+          </button>
+        } @empty {
+          <p class="p-4 text-sm italic text-ink-soft/70">
+            No attractions on this map yet. Click "+ Add attraction" then click a spot on the map.
+          </p>
+        }
+      </div>
+
+      @if (selectedPoi(); as poi) {
+        <div class="flex flex-col gap-3 border-t border-line p-4">
+          @if (selectedPoiIsNew()) {
+            <span
+              class="self-start rounded border border-tan-line bg-tan px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-soft"
+            >
+              🆕 New this year
+            </span>
+          }
+
+          <label class="text-xs font-semibold uppercase tracking-[0.08em] text-ink-soft">
+            Name
+            <input
+              type="text"
+              [value]="poi.name"
+              (change)="updateName($any($event.target).value)"
+              class="mt-1 block w-full rounded border border-line bg-card px-2 py-1 text-sm text-ink"
+            />
+          </label>
+
+          <label class="text-xs font-semibold uppercase tracking-[0.08em] text-ink-soft">
+            Category
+            <select
+              [value]="poi.category"
+              (change)="updateCategory($any($event.target).value)"
+              class="mt-1 block w-full rounded border border-line bg-card px-2 py-1 text-sm text-ink"
+            >
+              @for (category of categories; track category) {
+                <option [value]="category">{{ categoryLabel[category] }}</option>
+              }
+            </select>
+          </label>
+
+          <label class="text-xs font-semibold uppercase tracking-[0.08em] text-ink-soft">
+            Description
+            <textarea
+              rows="3"
+              [value]="poi.description ?? ''"
+              (change)="updateDescription($any($event.target).value)"
+              class="mt-1 block w-full rounded border border-line bg-card px-2 py-1 text-sm text-ink"
+            ></textarea>
+          </label>
+
+          <div class="flex gap-2">
+            <label class="flex-1 text-xs font-semibold uppercase tracking-[0.08em] text-ink-soft">
+              Open since
+              <input
+                type="number"
+                [value]="poi.operating?.from ?? selectedMap()!.period.from"
+                (change)="updateOperatingFrom($any($event.target).value)"
+                class="mt-1 block w-full rounded border border-line bg-card px-2 py-1 text-sm text-ink"
+              />
+            </label>
+            <label class="flex-1 text-xs font-semibold uppercase tracking-[0.08em] text-ink-soft">
+              Closed (blank = still open)
+              <input
+                type="number"
+                [value]="poi.operating?.to ?? ''"
+                (change)="updateOperatingTo($any($event.target).value)"
+                class="mt-1 block w-full rounded border border-line bg-card px-2 py-1 text-sm text-ink"
+              />
+            </label>
+          </div>
+
+          <p class="text-[11px] text-ink-soft/70">
+            Position: {{ poi.position.x }}, {{ poi.position.y }} — drag the marker on the map to move it.
+          </p>
+
+          <button
+            type="button"
+            (click)="removePoi(poi.id)"
+            class="self-start rounded border border-line px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-ink-soft hover:border-tan-line hover:bg-tan"
+          >
+            Delete attraction
+          </button>
+        </div>
+      }
+    </aside>
+  </div>
+}

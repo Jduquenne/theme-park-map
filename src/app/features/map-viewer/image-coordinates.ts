@@ -1,4 +1,4 @@
-import { LatLngTuple, latLngBounds, type LatLngBounds } from 'leaflet';
+import { LatLng, LatLngTuple, latLngBounds, type LatLngBounds } from 'leaflet';
 import { MapImage, PixelPoint } from '../../core/models';
 
 export function imageBounds(image: MapImage): LatLngBounds {
@@ -9,4 +9,11 @@ export function imageBounds(image: MapImage): LatLngBounds {
 
 export function imagePointToLatLng(point: PixelPoint, image: MapImage): LatLngTuple {
   return [image.height - point.y, point.x];
+}
+
+export function latLngToImagePoint(latlng: LatLng, image: MapImage): PixelPoint {
+  return {
+    x: Math.round(latlng.lng),
+    y: Math.round(image.height - latlng.lat),
+  };
 }

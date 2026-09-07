@@ -9,8 +9,4 @@ export const routes: Routes = [
     path: 'parks/:slug',
     loadComponent: () => import('./features/map-viewer/map-viewer').then((m) => m.MapViewer),
   },
-  {
-    path: 'parks/:slug/edit',
-    loadComponent: () => import('./features/poi-editor/poi-editor').then((m) => m.PoiEditor),
-  },
 ];

@@ -22,8 +22,8 @@ import {
   marker,
   map as createMap,
 } from 'leaflet';
-import { MapImage, PoiCategory, PointOfInterest } from '../../core/models';
-import { imageBounds, imagePointToLatLng } from './image-coordinates';
+import { MapImage, PixelPoint, PoiCategory, PointOfInterest } from '../../core/models';
+import { imageBounds, imagePointToLatLng, latLngToImagePoint } from './image-coordinates';
 import { POI_COLOR } from './poi/poi-style';
 
 function pinIcon(category: PoiCategory, selected: boolean) {
@@ -53,8 +53,12 @@ export class LeafletMap {
   readonly image = input.required<MapImage>();
   readonly pointsOfInterest = input<readonly PointOfInterest[]>([]);
   readonly selectedPoiId = input<string | null>(null);
+  readonly editable = input(false);
+  readonly placementActive = input(false);
 
   readonly poiPicked = output<string>();
+  readonly positionPicked = output<PixelPoint>();
+  readonly poiMoved = output<{ id: string; position: PixelPoint }>();
 
   private readonly canvas = viewChild.required<ElementRef<HTMLElement>>('canvas');
   private readonly destroyRef = inject(DestroyRef);
@@ -94,6 +98,13 @@ export class LeafletMap {
       attributionControl: false,
     });
     this.markers.addTo(this.map);
+
+    this.map.on('click', (event) => {
+      if (!this.editable() || !this.placementActive()) {
+        return;
+      }
+      this.positionPicked.emit(latLngToImagePoint(event.latlng, this.image()));
+    });
 
     const resize = new ResizeObserver(() => this.refit());
     resize.observe(host);
@@ -153,17 +164,25 @@ export class LeafletMap {
 
   private renderMarkers(pois: readonly PointOfInterest[], selectedId: string | null): void {
     const image = this.image();
+    const editable = this.editable();
     this.markers.clearLayers();
     for (const poi of pois) {
       const selected = poi.id === selectedId;
-      marker(imagePointToLatLng(poi.position, image), {
+      const instance = marker(imagePointToLatLng(poi.position, image), {
         icon: pinIcon(poi.category, selected),
         zIndexOffset: selected ? 1000 : 0,
         keyboard: false,
+        draggable: editable,
       })
         .bindTooltip(poi.name, { direction: 'top' })
         .on('click', () => this.poiPicked.emit(poi.id))
         .addTo(this.markers);
+
+      if (editable) {
+        instance.on('dragend', () => {
+          this.poiMoved.emit({ id: poi.id, position: latLngToImagePoint(instance.getLatLng(), image) });
+        });
+      }
     }
   }
 }

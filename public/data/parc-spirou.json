@@ -17,5 +17,106 @@
   },
   "logo": "logos/parc-spirou.png",
   "description": "A theme park based on the Spirou comics, opened in 2018 in the Vaucluse.",
-  "maps": []
+  "maps": [
+    {
+      "id": "map-2026",
+      "title": "2026",
+      "period": {
+        "from": 2026,
+        "to": null
+      },
+      "image": {
+        "path": "maps/parc-spirou/2026.jpg",
+        "width": 2481,
+        "height": 1754
+      },
+      "source": null,
+      "pointsOfInterest": [
+        {
+          "id": "poi-54e367c9",
+          "name": "Kyûbi Enchained",
+          "category": "attraction",
+          "position": {
+            "x": 654,
+            "y": 285
+          },
+          "description": null,
+          "operating": {
+            "from": 2026,
+            "to": null
+          }
+        },
+        {
+          "id": "poi-bed63145",
+          "name": "Wanted Dalton",
+          "category": "attraction",
+          "position": {
+            "x": 896,
+            "y": 642
+          },
+          "description": null,
+          "operating": {
+            "from": 2026,
+            "to": null
+          }
+        },
+        {
+          "id": "poi-281f66b2",
+          "name": "Spirou Racing",
+          "category": "attraction",
+          "position": {
+            "x": 1291,
+            "y": 367
+          },
+          "description": null,
+          "operating": {
+            "from": 2026,
+            "to": null
+          }
+        },
+        {
+          "id": "poi-14fa0eff",
+          "name": "En avant Seccotine",
+          "category": "attraction",
+          "position": {
+            "x": 734,
+            "y": 923
+          },
+          "description": null,
+          "operating": {
+            "from": 2026,
+            "to": null
+          }
+        },
+        {
+          "id": "poi-fb694416",
+          "name": "Blorks Attack",
+          "category": "attraction",
+          "position": {
+            "x": 85,
+            "y": 1197
+          },
+          "description": null,
+          "operating": {
+            "from": 2026,
+            "to": null
+          }
+        },
+        {
+          "id": "poi-0a4f2bbc",
+          "name": "Le nid des Marsupilamis",
+          "category": "attraction",
+          "position": {
+            "x": 449,
+            "y": 695
+          },
+          "description": null,
+          "operating": {
+            "from": 2026,
+            "to": null
+          }
+        }
+      ]
+    }
+  ]
 }

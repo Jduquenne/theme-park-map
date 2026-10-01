@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Degrade de fond sombre et moderne -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+
+    <!-- Degrade dynamique pour le rail du coaster -->
+    <linearGradient id="coasterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+
+    <!-- Degrade or pour le marqueur temporel/carte -->
+    <linearGradient id="pinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fond arrondi pour application web/mobile -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+  <!-- Trame de carte en arrière-plan -->
+  <path d="M 120 160 L 210 130 L 302 160 L 392 130 L 392 350 L 302 380 L 210 350 L 120 380 Z" 
+        fill="#334155" opacity="0.35" />
+  <path d="M 210 130 L 210 350 M 302 160 L 302 380" 
+        stroke="#0f172a" stroke-width="8" stroke-dasharray="10 10" opacity="0.6" />
+
+  <!-- Rail principal en looping -->
+  <path d="M 140 370 C 140 200, 200 100, 310 100 C 410 100, 430 200, 380 270 C 330 340, 220 320, 230 220 C 240 140, 330 140, 360 200" 
+        fill="none" stroke="url(#coasterGrad)" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Traverses de la voie du roller coaster -->
+  <path d="M 140 370 C 140 200, 200 100, 310 100 C 410 100, 430 200, 380 270 C 330 340, 220 320, 230 220 C 240 140, 330 140, 360 200" 
+        fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 20" opacity="0.8" />
+
+  <!-- Puce de géolocalisation / sélecteur d'époque -->
+  <circle cx="360" cy="200" r="28" fill="url(#pinGrad)" />
+  <circle cx="360" cy="200" r="10" fill="#0f172a" />
+</svg>

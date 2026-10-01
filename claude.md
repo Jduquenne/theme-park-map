@@ -12,6 +12,7 @@ Interactive historical map viewer for theme parks using Angular, Tailwind CSS, a
   - `/src/app/shared/`: Reusable UI components, interfaces, types.
   - `/src/app/features/`: Feature modules (e.g., `map-viewer`, `poi-legend`).
 - **File Naming**: Kebab-case for files (`park-list.component.ts`).
+- **Dev-Only Tooling**: This app is static and backend-less — any admin/editing tool (e.g. the POI editor) must never ship in the production bundle. Guarantee this at build time, not just behind a runtime guard: keep a `*.prod.ts` variant of the route config without the dev-only route, and swap it in via `fileReplacements` on the `production` build configuration in `angular.json` (see `src/app/app.routes.ts` / `app.routes.prod.ts`). Verify with `ng build --configuration production` that the dev feature's chunk is absent from `dist/`.
 
 # Coding Standards
 

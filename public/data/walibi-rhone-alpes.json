@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Les Avenières",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1979,
@@ -16,6 +16,9 @@
     "year": 2024
   },
   "logo": "logos/walibi-rhone-alpes.png",
-  "description": "An amusement park in the Isère opened in 1979 as Avenir Land and part of the Walibi chain since 1998.",
+  "description": {
+    "en": "An amusement park in the Isère opened in 1979 as Avenir Land and part of the Walibi chain since 1998.",
+    "fr": "Parc d'attractions de l'Isère ouvert en 1979 sous le nom d'Avenir Land, intégré à la chaîne Walibi depuis 1998."
+  },
   "maps": []
 }

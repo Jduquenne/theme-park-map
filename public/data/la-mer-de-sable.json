@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Ermenonville",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1963,
@@ -16,6 +16,9 @@
     "year": 2024
   },
   "logo": "logos/la-mer-de-sable.png",
-  "description": "A desert- and Western-themed park set on natural sand dunes in the Oise, opened in 1963.",
+  "description": {
+    "en": "A desert- and Western-themed park set on natural sand dunes in the Oise, opened in 1963.",
+    "fr": "Parc sur le thème du désert et du Far West, installé sur des dunes de sable naturelles dans l'Oise, ouvert en 1963."
+  },
   "maps": []
 }

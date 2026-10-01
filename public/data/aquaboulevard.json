@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Paris",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1989,
@@ -16,6 +16,9 @@
     "year": 2011
   },
   "logo": null,
-  "description": "A large indoor water park and leisure complex in the 15th arrondissement of Paris, opened in 1989.",
+  "description": {
+    "en": "A large indoor water park and leisure complex in the 15th arrondissement of Paris, opened in 1989.",
+    "fr": "Grand parc aquatique couvert et complexe de loisirs du 15e arrondissement de Paris, ouvert en 1989."
+  },
   "maps": []
 }

@@ -9,13 +9,3 @@ export const POI_COLOR: Record<PoiCategory, string> = {
   entrance: '#4b8a48',
   landmark: '#b0487e',
 };
-
-export const POI_LABEL: Record<PoiCategory, string> = {
-  attraction: 'Attraction',
-  show: 'Show',
-  dining: 'Dining',
-  shop: 'Shop',
-  service: 'Service',
-  entrance: 'Entrance',
-  landmark: 'Landmark',
-};

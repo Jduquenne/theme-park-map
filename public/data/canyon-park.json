@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Épretot",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1976,
@@ -13,6 +13,9 @@
   },
   "attendance": null,
   "logo": null,
-  "description": "An amusement park in the Seine-Maritime, open from 1976 to 2004.",
+  "description": {
+    "en": "An amusement park in the Seine-Maritime, open from 1976 to 2004.",
+    "fr": "Parc d'attractions de Seine-Maritime, ouvert de 1976 à 2004."
+  },
   "maps": []
 }

@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Lanas",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1990,
@@ -13,6 +13,9 @@
   },
   "attendance": null,
   "logo": "logos/parc-avenue.jpg",
-  "description": "An amusement park in the Ardèche, open from 1990 to 2014.",
+  "description": {
+    "en": "An amusement park in the Ardèche, open from 1990 to 2014.",
+    "fr": "Parc d'attractions de l'Ardèche, ouvert de 1990 à 2014."
+  },
   "maps": []
 }

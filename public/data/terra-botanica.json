@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Angers",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 2010,
@@ -16,6 +16,9 @@
     "year": 2024
   },
   "logo": "logos/terra-botanica.png",
-  "description": "A botanical theme park in Angers, opened in 2010.",
+  "description": {
+    "en": "A botanical theme park in Angers, opened in 2010.",
+    "fr": "Parc à thème consacré au végétal à Angers, ouvert en 2010."
+  },
   "maps": []
 }

@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 import { PoiCategory } from '../../../core/models';
-import { POI_COLOR, POI_LABEL } from './poi-style';
+import { I18n } from '../../../core/i18n/i18n';
+import { POI_COLOR } from './poi-style';
 
 export interface PoiLegendEntry {
   category: PoiCategory;
@@ -15,12 +16,13 @@ export interface PoiLegendEntry {
   templateUrl: './poi-legend.html',
 })
 export class PoiLegend {
+  protected readonly t = inject(I18n).t;
+
   readonly entries = input.required<readonly PoiLegendEntry[]>();
   readonly toggle = output<PoiCategory>();
   readonly showAll = output<void>();
 
   protected readonly color = POI_COLOR;
-  protected readonly label = POI_LABEL;
 
   protected readonly allActive = computed(() => this.entries().every((entry) => !entry.hidden));
 }

@@ -1,4 +1,5 @@
 export * from './year-range';
+export * from './localized-text';
 export * from './attendance';
 export * from './park-location';
 export * from './point-of-interest';

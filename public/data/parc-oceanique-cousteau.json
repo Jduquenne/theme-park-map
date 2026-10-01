@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Paris",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1989,
@@ -13,6 +13,9 @@
   },
   "attendance": null,
   "logo": "logos/parc-oceanique-cousteau.jpg",
-  "description": "An ocean-discovery attraction at the Forum des Halles in Paris, open from 1989 to 1992.",
+  "description": {
+    "en": "An ocean-discovery attraction at the Forum des Halles in Paris, open from 1989 to 1992.",
+    "fr": "Attraction de découverte des océans au Forum des Halles à Paris, ouverte de 1989 à 1992."
+  },
   "maps": []
 }

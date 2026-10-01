@@ -1,5 +1,6 @@
 import { Attendance } from './attendance';
 import { HistoricalMap } from './historical-map';
+import { LocalizedText } from './localized-text';
 import { ParkLocation } from './park-location';
 import { YearRange } from './year-range';
 
@@ -12,6 +13,6 @@ export interface Park {
   operating: YearRange;
   attendance: Attendance | null;
   logo: string | null;
-  description: string;
+  description: LocalizedText;
   maps: HistoricalMap[];
 }

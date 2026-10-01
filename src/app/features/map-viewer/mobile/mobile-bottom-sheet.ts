@@ -4,12 +4,14 @@ import {
   ElementRef,
   computed,
   effect,
+  inject,
   input,
   output,
   signal,
   viewChild,
 } from '@angular/core';
 import { PoiCategory, PointOfInterest } from '../../../core/models';
+import { I18n } from '../../../core/i18n/i18n';
 import { PoiDetail } from '../poi/poi-detail';
 import { PoiLegend, PoiLegendEntry } from '../poi/poi-legend';
 import { PoiRows } from '../poi/poi-rows';
@@ -26,6 +28,8 @@ const SNAP_TRANSITION = 'transform 300ms ease-out';
   templateUrl: './mobile-bottom-sheet.html',
 })
 export class MobileBottomSheet {
+  protected readonly t = inject(I18n).t;
+
   readonly pois = input.required<readonly PointOfInterest[]>();
   readonly legend = input.required<readonly PoiLegendEntry[]>();
   readonly year = input<number | null>(null);

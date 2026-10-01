@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Nice",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1987,
@@ -13,6 +13,9 @@
   },
   "attendance": null,
   "logo": "logos/zygofolis.png",
-  "description": "An amusement park on the outskirts of Nice, open from 1987 to 1991.",
+  "description": {
+    "en": "An amusement park on the outskirts of Nice, open from 1987 to 1991.",
+    "fr": "Parc d'attractions en périphérie de Nice, ouvert de 1987 à 1991."
+  },
   "maps": []
 }

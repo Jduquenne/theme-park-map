@@ -11,6 +11,7 @@ import {
   signal,
 } from '@angular/core';
 import { HistoricalMap } from '../../core/models';
+import { I18n } from '../../core/i18n/i18n';
 
 const YEAR_BUTTON_PX = 50;
 const CHROME_PX = 84;
@@ -25,11 +26,11 @@ const MAX_YEARS = 11;
       <p
         class="mb-1.5 text-center font-display text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-soft"
       >
-        Time machine
+        {{ i18n.t().timeline.title }}
       </p>
 
       @if (maps().length > 1) {
-        <nav class="mb-1.5 flex justify-center gap-1" aria-label="Historical map">
+        <nav class="mb-1.5 flex justify-center gap-1" [attr.aria-label]="i18n.t().timeline.mapNav">
           @for (entry of maps(); track entry.id) {
             <button
               type="button"
@@ -42,7 +43,7 @@ const MAX_YEARS = 11;
                   : 'text-ink-soft hover:bg-parchment hover:text-ink'
               "
             >
-              {{ entry.title }}
+              {{ i18n.localize(entry.title) }}
             </button>
           }
         </nav>
@@ -53,7 +54,7 @@ const MAX_YEARS = 11;
           type="button"
           (click)="page(-1)"
           [disabled]="atStart()"
-          aria-label="Earlier years"
+          [attr.aria-label]="i18n.t().timeline.earlierYears"
           class="shrink-0 rounded-md p-1 text-ink-soft transition-colors hover:bg-parchment disabled:opacity-30"
         >
           <svg
@@ -89,7 +90,7 @@ const MAX_YEARS = 11;
           type="button"
           (click)="page(1)"
           [disabled]="atEnd()"
-          aria-label="Later years"
+          [attr.aria-label]="i18n.t().timeline.laterYears"
           class="shrink-0 rounded-md p-1 text-ink-soft transition-colors hover:bg-parchment disabled:opacity-30"
         >
           <svg
@@ -107,6 +108,8 @@ const MAX_YEARS = 11;
   `,
 })
 export class TimeBar {
+  protected readonly i18n = inject(I18n);
+
   readonly maps = input.required<readonly HistoricalMap[]>();
   readonly selectedMapId = input<string | null>(null);
   readonly from = input.required<number>();

@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Rang-du-Fliers",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1955,
@@ -16,6 +16,9 @@
     "year": 2022
   },
   "logo": "logos/parc-bagatelle.svg",
-  "description": "One of France's oldest amusement parks, on the Opal Coast, operating since 1955.",
+  "description": {
+    "en": "One of France's oldest amusement parks, on the Opal Coast, operating since 1955.",
+    "fr": "L'un des plus anciens parcs d'attractions de France, sur la Côte d'Opale, en activité depuis 1955."
+  },
   "maps": []
 }

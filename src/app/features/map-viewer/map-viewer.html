@@ -6,12 +6,12 @@
       routerLink="/"
       class="font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-soft hover:text-ink"
     >
-      ‹ Archive
+      {{ t().mapViewer.backToArchive }}
     </a>
     @if (park.logo; as logo) {
       <img
         [src]="logo"
-        [alt]="park.name + ' logo'"
+        [alt]="t().common.logoAlt(park.name)"
         class="h-7 w-auto max-w-[9rem] self-center object-contain"
       />
     }
@@ -22,7 +22,7 @@
       @if (park.resort) {
         {{ park.resort }} ·
       }
-      {{ park.location.city }}, {{ park.location.country }}
+      {{ park.location.city }}, {{ i18n.countryName(park.location.countryCode) }}
     </p>
     @if (attendanceLabel(); as attendance) {
       <p class="text-xs text-ink-soft/80">{{ attendance }}</p>
@@ -34,7 +34,7 @@
       #mapRegion
       class="relative min-h-0 flex-1 bg-[#e3e0d4]"
       role="region"
-      aria-label="Historical park map"
+      [attr.aria-label]="t().mapViewer.mapRegion"
     >
       <div
         class="absolute inset-x-3 top-[calc(0.75rem+env(safe-area-inset-top))] z-1000 flex items-start gap-2 lg:hidden"
@@ -45,7 +45,7 @@
           (click)="openMenu()"
           aria-haspopup="dialog"
           [attr.aria-expanded]="menuOpen()"
-          aria-label="Open the parks index"
+          [attr.aria-label]="t().mapViewer.openIndex"
           class="flex size-10 shrink-0 items-center justify-center rounded-full border border-line bg-card text-ink-soft shadow-md hover:bg-parchment hover:text-ink"
         >
           <svg
@@ -103,7 +103,9 @@
           type="button"
           (click)="toggleFullscreen()"
           [attr.aria-pressed]="isFullscreen()"
-          [attr.aria-label]="isFullscreen() ? 'Exit full screen' : 'Full screen'"
+          [attr.aria-label]="
+            isFullscreen() ? t().mapViewer.exitFullscreen : t().mapViewer.enterFullscreen
+          "
           class="absolute right-3 top-3 z-1000 hidden rounded-lg border border-line bg-card p-2 text-ink-soft shadow-sm hover:bg-parchment hover:text-ink lg:block"
         >
           <svg viewBox="0 0 16 16" class="size-4" fill="none" stroke="currentColor" stroke-width="1.75">
@@ -115,7 +117,7 @@
           </svg>
         </button>
       } @else {
-        <p class="p-6 text-sm text-ink-soft">No historical map recorded for this park yet.</p>
+        <p class="p-6 text-sm text-ink-soft">{{ t().mapViewer.noMap }}</p>
       }
     </div>
 
@@ -155,17 +157,21 @@
 
 } @else if (status() === 'error') {
   <div role="alert" class="m-6 rounded-lg border border-red-300 bg-red-50 p-4">
-    <p class="text-sm text-red-800">This park archive could not be loaded.</p>
+    <p class="text-sm text-red-800">{{ t().mapViewer.loadError }}</p>
     <button
       type="button"
       (click)="retry()"
       class="mt-2 rounded bg-denim px-3 py-1.5 text-xs font-semibold text-card hover:bg-denim-ink"
     >
-      Retry
+      {{ t().common.retry }}
     </button>
   </div>
 } @else {
-  <div class="flex min-h-0 flex-1 flex-col" role="status" aria-label="Loading park archive">
+  <div
+    class="flex min-h-0 flex-1 flex-col"
+    role="status"
+    [attr.aria-label]="t().mapViewer.loading"
+  >
     <div class="flex items-center gap-4 border-b border-line bg-card px-5 py-3">
       <app-skeleton class="h-4 w-40 rounded" />
       <app-skeleton class="h-4 w-24 rounded" />

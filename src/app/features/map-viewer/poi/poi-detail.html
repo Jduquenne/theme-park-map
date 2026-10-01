@@ -4,7 +4,7 @@
     (click)="closed.emit()"
     class="-ml-1 flex items-center gap-1 self-start rounded px-1 py-0.5 font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-soft hover:text-ink"
   >
-    ‹ All points
+    {{ t().poi.backToList }}
   </button>
 
   <div>
@@ -23,13 +23,13 @@
     <p
       class="self-start rounded border border-tan-line bg-tan px-2 py-0.5 text-xs tabular-nums text-ink-soft"
     >
-      Active {{ years }}
+      {{ years }}
     </p>
   }
 
-  @if (poi().description; as description) {
+  @if (description(); as description) {
     <p class="text-sm leading-relaxed text-ink-soft">{{ description }}</p>
   } @else {
-    <p class="text-sm italic text-ink-soft/70">No description recorded.</p>
+    <p class="text-sm italic text-ink-soft/70">{{ t().poi.noDescription }}</p>
   }
 </aside>

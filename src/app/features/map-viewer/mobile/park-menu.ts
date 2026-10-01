@@ -9,6 +9,8 @@ import {
   output,
   viewChild,
 } from '@angular/core';
+import { I18n } from '../../../core/i18n/i18n';
+import { LanguageSwitcher } from '../../../shared/components/language-switcher';
 import { ParkIndex } from '../../park-index/park-index';
 
 const FOCUSABLE =
@@ -21,7 +23,7 @@ const FOCUSABLE =
     class: 'contents',
     '(document:keydown.escape)': 'onEscape()',
   },
-  imports: [ParkIndex],
+  imports: [ParkIndex, LanguageSwitcher],
   template: `
     @if (open()) {
       <div
@@ -29,18 +31,21 @@ const FOCUSABLE =
         class="fixed inset-0 z-2000 flex flex-col bg-parchment pt-[env(safe-area-inset-top)] lg:hidden"
         role="dialog"
         aria-modal="true"
-        aria-label="Parks index"
+        [attr.aria-label]="t().parkIndex.title"
         (keydown)="onKeydown($event)"
       >
-        <div class="flex shrink-0 items-center justify-between border-b border-line px-4 py-3">
-          <span class="font-display text-base font-semibold uppercase tracking-[0.16em] text-ink">
+        <div class="flex shrink-0 items-center gap-2 border-b border-line px-4 py-3">
+          <span
+            class="mr-auto font-display text-base font-semibold uppercase tracking-[0.16em] text-ink"
+          >
             Park Map History
           </span>
+          <app-language-switcher />
           <button
             #closeButton
             type="button"
             (click)="closed.emit()"
-            aria-label="Close the parks index"
+            [attr.aria-label]="t().mapViewer.closeIndex"
             class="flex size-9 items-center justify-center rounded-lg text-ink-soft transition-colors hover:bg-card hover:text-ink"
           >
             <svg
@@ -61,6 +66,8 @@ const FOCUSABLE =
   `,
 })
 export class ParkMenu {
+  protected readonly t = inject(I18n).t;
+
   readonly open = input.required<boolean>();
   readonly closed = output<void>();
 

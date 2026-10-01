@@ -5,7 +5,7 @@
   "resort": "Disneyland Paris",
   "location": {
     "city": "Marne-la-Vallée",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1992,
@@ -16,6 +16,9 @@
     "year": 2023
   },
   "logo": "logos/disneyland-park.svg",
-  "description": "The flagship Disney theme park in Europe, opened as Euro Disney in 1992 east of Paris.",
+  "description": {
+    "en": "The flagship Disney theme park in Europe, opened as Euro Disney in 1992 east of Paris.",
+    "fr": "Le parc Disney phare en Europe, ouvert sous le nom d'Euro Disney en 1992 à l'est de Paris."
+  },
   "maps": []
 }

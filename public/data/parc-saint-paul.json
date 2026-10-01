@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Saint-Paul",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1983,
@@ -16,6 +16,9 @@
     "year": 2024
   },
   "logo": "logos/parc-saint-paul.jpg",
-  "description": "A family amusement park in the Oise, opened in 1983.",
+  "description": {
+    "en": "A family amusement park in the Oise, opened in 1983.",
+    "fr": "Parc d'attractions familial de l'Oise, ouvert en 1983."
+  },
   "maps": []
 }

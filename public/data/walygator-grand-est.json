@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Maizières-lès-Metz",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1989,
@@ -16,6 +16,9 @@
     "year": 2024
   },
   "logo": "logos/walygator-grand-est.jpg",
-  "description": "An amusement park near Metz, opened in 1989 as Big Bang Schtroumpf and later run as Walibi Lorraine and Walygator Parc.",
+  "description": {
+    "en": "An amusement park near Metz, opened in 1989 as Big Bang Schtroumpf and later run as Walibi Lorraine and Walygator Parc.",
+    "fr": "Parc d'attractions près de Metz, ouvert en 1989 sous le nom de Big Bang Schtroumpf, puis exploité sous les noms Walibi Lorraine et Walygator Parc."
+  },
   "maps": []
 }

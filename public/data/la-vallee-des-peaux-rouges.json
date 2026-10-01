@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Fleurines",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1966,
@@ -13,6 +13,9 @@
   },
   "attendance": null,
   "logo": null,
-  "description": "A Western-themed park in the Oise forest, open from 1966 to 1988.",
+  "description": {
+    "en": "A Western-themed park in the Oise forest, open from 1966 to 1988.",
+    "fr": "Parc sur le thème du Far West dans la forêt de l'Oise, ouvert de 1966 à 1988."
+  },
   "maps": []
 }

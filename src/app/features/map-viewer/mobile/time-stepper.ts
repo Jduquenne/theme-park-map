@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 import { HistoricalMap } from '../../../core/models';
+import { I18n } from '../../../core/i18n/i18n';
 
 @Component({
   selector: 'app-time-stepper',
@@ -8,7 +9,7 @@ import { HistoricalMap } from '../../../core/models';
   template: `
     <div class="rounded-xl border border-line bg-card px-1.5 py-1 shadow-md">
       @if (maps().length > 1) {
-        <nav class="mb-1 flex gap-1 overflow-x-auto" aria-label="Historical map">
+        <nav class="mb-1 flex gap-1 overflow-x-auto" [attr.aria-label]="i18n.t().timeline.mapNav">
           @for (entry of maps(); track entry.id) {
             <button
               type="button"
@@ -21,7 +22,7 @@ import { HistoricalMap } from '../../../core/models';
                   : 'text-ink-soft hover:bg-parchment hover:text-ink'
               "
             >
-              {{ entry.title }}
+              {{ i18n.localize(entry.title) }}
             </button>
           }
         </nav>
@@ -32,7 +33,7 @@ import { HistoricalMap } from '../../../core/models';
           type="button"
           (click)="step(-1)"
           [disabled]="atStart()"
-          aria-label="Previous year"
+          [attr.aria-label]="i18n.t().timeline.previousYear"
           class="shrink-0 rounded-md p-1.5 text-ink-soft transition-colors hover:bg-parchment disabled:opacity-30"
         >
           <svg
@@ -57,7 +58,7 @@ import { HistoricalMap } from '../../../core/models';
           type="button"
           (click)="step(1)"
           [disabled]="atEnd()"
-          aria-label="Next year"
+          [attr.aria-label]="i18n.t().timeline.nextYear"
           class="shrink-0 rounded-md p-1.5 text-ink-soft transition-colors hover:bg-parchment disabled:opacity-30"
         >
           <svg
@@ -75,6 +76,8 @@ import { HistoricalMap } from '../../../core/models';
   `,
 })
 export class TimeStepper {
+  protected readonly i18n = inject(I18n);
+
   readonly maps = input.required<readonly HistoricalMap[]>();
   readonly selectedMapId = input<string | null>(null);
   readonly from = input.required<number>();

@@ -1,3 +1,4 @@
+import { LocalizedText } from './localized-text';
 import { YearRange } from './year-range';
 
 export type PoiCategory =
@@ -19,6 +20,6 @@ export interface PointOfInterest {
   name: string;
   category: PoiCategory;
   position: PixelPoint;
-  description: string | null;
+  description: LocalizedText | null;
   operating: YearRange | null;
 }

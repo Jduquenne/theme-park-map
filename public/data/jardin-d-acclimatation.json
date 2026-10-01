@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Paris",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1860,
@@ -16,6 +16,9 @@
     "year": 2024
   },
   "logo": null,
-  "description": "A historic amusement and pleasure garden in the Bois de Boulogne, opened in 1860 and extensively renovated in 2018.",
+  "description": {
+    "en": "A historic amusement and pleasure garden in the Bois de Boulogne, opened in 1860 and extensively renovated in 2018.",
+    "fr": "Jardin de loisirs historique du bois de Boulogne, ouvert en 1860 et largement rénové en 2018."
+  },
   "maps": []
 }

@@ -4,22 +4,21 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { ParkSummary } from '../../core/models';
 import { ParkRepository } from '../../core/services/park-repository';
+import { I18n } from '../../core/i18n/i18n';
 import { RequestState, toRequestState } from '../../shared/http/request-state';
-import { formatCount } from '../../shared/text/format-count';
 import { Skeleton } from '../../shared/components/skeleton';
 import {
   DEFAULT_DIRECTION,
   ParkSort,
   ParkStatus,
   SortDirection,
-  countriesOf,
+  countryCodesOf,
   filterAndSortParks,
 } from './park-filtering';
 
-interface SortOption {
-  key: ParkSort;
-  ascLabel: string;
-  descLabel: string;
+interface CountryOption {
+  code: string;
+  name: string;
 }
 
 @Component({
@@ -34,6 +33,8 @@ interface SortOption {
 })
 export class ParkIndex {
   private readonly repository = inject(ParkRepository);
+  protected readonly i18n = inject(I18n);
+  protected readonly t = this.i18n.t;
   private readonly reload = signal(0);
 
   private readonly request = toSignal(
@@ -45,13 +46,9 @@ export class ParkIndex {
   readonly sort = signal<ParkSort>('name');
   readonly direction = signal<SortDirection>('asc');
   readonly statusFilter = signal<ParkStatus>('all');
-  readonly country = signal<string>('all');
+  readonly countryCode = signal<string>('all');
 
-  readonly sortOptions: readonly SortOption[] = [
-    { key: 'name', ascLabel: 'A–Z', descLabel: 'Z–A' },
-    { key: 'visitors', ascLabel: 'Fewest', descLabel: 'Most' },
-    { key: 'opened', ascLabel: 'Oldest', descLabel: 'Newest' },
-  ];
+  readonly sortKeys: readonly ParkSort[] = ['name', 'visitors', 'opened'];
   readonly statusOptions: readonly ParkStatus[] = ['all', 'open', 'closed'];
 
   readonly status = computed(() => this.request().status);
@@ -62,7 +59,12 @@ export class ParkIndex {
   });
 
   readonly parkCount = computed(() => this.catalog().length);
-  readonly countries = computed(() => countriesOf(this.catalog()));
+  readonly countries = computed<CountryOption[]>(() => {
+    const locale = this.i18n.locale();
+    return countryCodesOf(this.catalog())
+      .map((code) => ({ code, name: this.i18n.countryName(code) }))
+      .sort((a, b) => a.name.localeCompare(b.name, locale));
+  });
   readonly countryCount = computed(() => this.countries().length);
 
   readonly visibleParks = computed(() =>
@@ -71,11 +73,11 @@ export class ParkIndex {
       sort: this.sort(),
       direction: this.direction(),
       status: this.statusFilter(),
-      country: this.country(),
+      countryCode: this.countryCode(),
     }),
   );
 
-  readonly sortIndex = computed(() => this.sortOptions.findIndex((o) => o.key === this.sort()));
+  readonly sortIndex = computed(() => this.sortKeys.indexOf(this.sort()));
   readonly statusIndex = computed(() => this.statusOptions.indexOf(this.statusFilter()));
 
   readonly hasActiveFilters = computed(
@@ -84,10 +86,8 @@ export class ParkIndex {
       this.sort() !== 'name' ||
       this.direction() !== 'asc' ||
       this.statusFilter() !== 'all' ||
-      this.country() !== 'all',
+      this.countryCode() !== 'all',
   );
-
-  protected readonly formatCount = formatCount;
 
   monogram(name: string): string {
     return name
@@ -111,13 +111,13 @@ export class ParkIndex {
     }
   }
 
-  sortLabel(option: SortOption): string {
-    const direction = this.sort() === option.key ? this.direction() : DEFAULT_DIRECTION[option.key];
-    return direction === 'asc' ? option.ascLabel : option.descLabel;
+  sortLabel(key: ParkSort): string {
+    const direction = this.sort() === key ? this.direction() : DEFAULT_DIRECTION[key];
+    return this.t().parkIndex.sortLabel[key][direction];
   }
 
   updateCountry(event: Event): void {
-    this.country.set((event.target as HTMLSelectElement).value);
+    this.countryCode.set((event.target as HTMLSelectElement).value);
   }
 
   resetFilters(): void {
@@ -125,7 +125,7 @@ export class ParkIndex {
     this.sort.set('name');
     this.direction.set('asc');
     this.statusFilter.set('all');
-    this.country.set('all');
+    this.countryCode.set('all');
   }
 
   retry(): void {

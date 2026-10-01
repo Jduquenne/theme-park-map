@@ -1,12 +1,12 @@
 <aside
   #panel
   tabindex="-1"
-  aria-label="Points of interest"
+  [attr.aria-label]="t().poi.title"
   class="flex h-full w-80 flex-col border-l border-line bg-card outline-none"
 >
   <div class="space-y-2 border-b border-line px-4 py-3">
     <h3 class="font-display text-sm font-semibold uppercase tracking-[0.12em] text-ink">
-      Points of interest
+      {{ t().poi.title }}
       @if (year() !== null) {
         <span class="font-normal text-ink-soft">· {{ year() }}</span>
       }

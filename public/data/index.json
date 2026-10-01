@@ -6,7 +6,7 @@
     "resort": "Disneyland Paris",
     "location": {
       "city": "Marne-la-Vallée",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1992,
@@ -26,7 +26,7 @@
     "resort": "Disneyland Paris",
     "location": {
       "city": "Marne-la-Vallée",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 2002,
@@ -46,7 +46,7 @@
     "resort": null,
     "location": {
       "city": "Plailly",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1989,
@@ -66,7 +66,7 @@
     "resort": null,
     "location": {
       "city": "Les Epesses",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1989,
@@ -86,7 +86,7 @@
     "resort": null,
     "location": {
       "city": "Chasseneuil-du-Poitou",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1987,
@@ -106,7 +106,7 @@
     "resort": null,
     "location": {
       "city": "Paris",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1860,
@@ -126,7 +126,7 @@
     "resort": null,
     "location": {
       "city": "Gassin",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1968,
@@ -146,7 +146,7 @@
     "resort": null,
     "location": {
       "city": "Paris",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1989,
@@ -166,7 +166,7 @@
     "resort": null,
     "location": {
       "city": "Dolancourt",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1987,
@@ -186,7 +186,7 @@
     "resort": null,
     "location": {
       "city": "Saint-Pourçain-sur-Besbre",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1973,
@@ -206,7 +206,7 @@
     "resort": null,
     "location": {
       "city": "Les Avenières",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1979,
@@ -226,7 +226,7 @@
     "resort": null,
     "location": {
       "city": "Angers",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 2010,
@@ -246,7 +246,7 @@
     "resort": null,
     "location": {
       "city": "Toulouse",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1997,
@@ -266,7 +266,7 @@
     "resort": null,
     "location": {
       "city": "Antibes",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1970,
@@ -286,7 +286,7 @@
     "resort": null,
     "location": {
       "city": "Cuges-les-Pins",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1966,
@@ -306,7 +306,7 @@
     "resort": null,
     "location": {
       "city": "Saint-Ours-les-Roches",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 2002,
@@ -326,7 +326,7 @@
     "resort": null,
     "location": {
       "city": "Rang-du-Fliers",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1955,
@@ -346,7 +346,7 @@
     "resort": null,
     "location": {
       "city": "Ermenonville",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1963,
@@ -366,7 +366,7 @@
     "resort": null,
     "location": {
       "city": "Saint-Paul",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1983,
@@ -386,7 +386,7 @@
     "resort": null,
     "location": {
       "city": "Le Mesnil-Amelot",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 2010,
@@ -406,7 +406,7 @@
     "resort": null,
     "location": {
       "city": "Monteux",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 2018,
@@ -426,7 +426,7 @@
     "resort": null,
     "location": {
       "city": "Cherbourg-en-Cotentin",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 2002,
@@ -446,7 +446,7 @@
     "resort": null,
     "location": {
       "city": "Roquefort",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1992,
@@ -466,7 +466,7 @@
     "resort": null,
     "location": {
       "city": "Jeanménil",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1966,
@@ -486,7 +486,7 @@
     "resort": null,
     "location": {
       "city": "Maizières-lès-Metz",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1989,
@@ -506,7 +506,7 @@
     "resort": null,
     "location": {
       "city": "Courdimanche",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1987,
@@ -523,7 +523,7 @@
     "resort": null,
     "location": {
       "city": "Nice",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1987,
@@ -540,7 +540,7 @@
     "resort": null,
     "location": {
       "city": "Paris",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1909,
@@ -557,7 +557,7 @@
     "resort": null,
     "location": {
       "city": "Paris",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1911,
@@ -574,7 +574,7 @@
     "resort": null,
     "location": {
       "city": "Fleurines",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1966,
@@ -591,7 +591,7 @@
     "resort": null,
     "location": {
       "city": "Le Touquet-Paris-Plage",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1985,
@@ -608,7 +608,7 @@
     "resort": null,
     "location": {
       "city": "Fresnes",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1999,
@@ -625,7 +625,7 @@
     "resort": null,
     "location": {
       "city": "Paris",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1989,
@@ -642,7 +642,7 @@
     "resort": null,
     "location": {
       "city": "Épretot",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1976,
@@ -659,7 +659,7 @@
     "resort": null,
     "location": {
       "city": "Lanas",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1990,
@@ -676,7 +676,7 @@
     "resort": null,
     "location": {
       "city": "Brochon",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1981,
@@ -693,7 +693,7 @@
     "resort": null,
     "location": {
       "city": "Paris",
-      "country": "France"
+      "countryCode": "FR"
     },
     "operating": {
       "from": 1730,

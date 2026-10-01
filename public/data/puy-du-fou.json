@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Les Epesses",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1989,
@@ -16,6 +16,9 @@
     "year": 2023
   },
   "logo": "logos/puy-du-fou.png",
-  "description": "A historical theme park in the Vendée built around large-scale live shows, with the Grand Parc opening in 1989.",
+  "description": {
+    "en": "A historical theme park in the Vendée built around large-scale live shows, with the Grand Parc opening in 1989.",
+    "fr": "Parc à thème historique de Vendée bâti autour de grands spectacles vivants, dont le Grand Parc a ouvert en 1989."
+  },
   "maps": []
 }

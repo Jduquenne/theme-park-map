@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Saint-Pourçain-sur-Besbre",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1973,
@@ -16,6 +16,9 @@
     "year": 2025
   },
   "logo": "logos/le-pal.png",
-  "description": "A combined amusement park and zoo in the Allier, opened in 1973.",
+  "description": {
+    "en": "A combined amusement park and zoo in the Allier, opened in 1973.",
+    "fr": "Parc d'attractions et zoo de l'Allier, ouvert en 1973."
+  },
   "maps": []
 }

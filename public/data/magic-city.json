@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Paris",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1911,
@@ -13,6 +13,9 @@
   },
   "attendance": null,
   "logo": null,
-  "description": "An amusement park on the Left Bank of the Seine in Paris, open from 1911 to 1934.",
+  "description": {
+    "en": "An amusement park on the Left Bank of the Seine in Paris, open from 1911 to 1934.",
+    "fr": "Parc d'attractions de la rive gauche de la Seine à Paris, ouvert de 1911 à 1934."
+  },
   "maps": []
 }

@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Toulouse",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1997,
@@ -16,6 +16,9 @@
     "year": 2024
   },
   "logo": "logos/cite-de-l-espace.png",
-  "description": "A space-themed science park in Toulouse, opened in 1997.",
+  "description": {
+    "en": "A space-themed science park in Toulouse, opened in 1997.",
+    "fr": "Parc scientifique consacré à l'espace à Toulouse, ouvert en 1997."
+  },
   "maps": []
 }

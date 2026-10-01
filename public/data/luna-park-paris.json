@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Paris",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1909,
@@ -13,6 +13,9 @@
   },
   "attendance": null,
   "logo": null,
-  "description": "A large amusement park at Porte Maillot in Paris, open from 1909 to 1946.",
+  "description": {
+    "en": "A large amusement park at Porte Maillot in Paris, open from 1909 to 1946.",
+    "fr": "Grand parc d'attractions de la porte Maillot à Paris, ouvert de 1909 à 1946."
+  },
   "maps": []
 }

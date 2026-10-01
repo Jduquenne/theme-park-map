@@ -9,7 +9,7 @@ export interface ParkFilters {
   sort: ParkSort;
   direction: SortDirection;
   status: ParkStatus;
-  country: string;
+  countryCode: string;
 }
 
 // The direction each sort snaps to when first picked (name A→Z, most visitors, oldest first).
@@ -28,7 +28,7 @@ export function filterAndSortParks(
     if (term && !matches(park, term)) {
       return false;
     }
-    if (filters.country !== 'all' && park.location.country !== filters.country) {
+    if (filters.countryCode !== 'all' && park.location.countryCode !== filters.countryCode) {
       return false;
     }
     if (filters.status === 'open' && park.operating.to !== null) {
@@ -43,10 +43,8 @@ export function filterAndSortParks(
   return matched.sort((a, b) => sign * ASCENDING[filters.sort](a, b));
 }
 
-export function countriesOf(parks: readonly ParkSummary[]): string[] {
-  return [...new Set(parks.map((park) => park.location.country))].sort((a, b) =>
-    a.localeCompare(b),
-  );
+export function countryCodesOf(parks: readonly ParkSummary[]): string[] {
+  return [...new Set(parks.map((park) => park.location.countryCode))];
 }
 
 const ASCENDING: Record<ParkSort, (a: ParkSummary, b: ParkSummary) => number> = {

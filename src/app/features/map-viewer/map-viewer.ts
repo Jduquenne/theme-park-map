@@ -14,6 +14,7 @@ import { RouterLink } from '@angular/router';
 import { combineLatest, switchMap } from 'rxjs';
 import { HistoricalMap, Park, PoiCategory, PointOfInterest } from '../../core/models';
 import { ParkRepository } from '../../core/services/park-repository';
+import { I18n } from '../../core/i18n/i18n';
 import { RequestState, toRequestState } from '../../shared/http/request-state';
 import {
   QueryParamCodec,
@@ -21,7 +22,6 @@ import {
   queryParamsState,
   stringParam,
 } from '../../shared/router/query-params-state';
-import { formatCount } from '../../shared/text/format-count';
 import { Skeleton } from '../../shared/components/skeleton';
 import { LeafletMap } from './leaflet-map';
 import { TimeBar } from './time-bar';
@@ -31,7 +31,6 @@ import { TimeStepper } from './mobile/time-stepper';
 import { PoiDetail } from './poi/poi-detail';
 import { PoiLegendEntry } from './poi/poi-legend';
 import { PoiList } from './poi/poi-list';
-import { POI_LABEL } from './poi/poi-style';
 import { isActiveInYear, resolveOpenEnd } from './poi/poi-visibility';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -63,6 +62,8 @@ const categorySetParam: QueryParamCodec<ReadonlySet<PoiCategory>> = {
 })
 export class MapViewer {
   private readonly repository = inject(ParkRepository);
+  protected readonly i18n = inject(I18n);
+  protected readonly t = this.i18n.t;
 
   readonly slug = input.required<string>();
 
@@ -107,10 +108,10 @@ export class MapViewer {
     if (!attendance) {
       return null;
     }
-    const count = formatCount(attendance.visitors);
-    return attendance.year
-      ? `≈ ${count} visitors (${attendance.year})`
-      : `≈ ${count} visitors / year`;
+    return this.t().mapViewer.attendance(
+      this.i18n.formatCount(attendance.visitors),
+      attendance.year,
+    );
   });
 
   readonly maps = computed(() => this.park()?.maps ?? []);
@@ -151,9 +152,11 @@ export class MapViewer {
       counts.set(poi.category, (counts.get(poi.category) ?? 0) + 1);
     }
     const hidden = this.hiddenCategories();
+    const labels = this.t().poiCategory;
+    const locale = this.i18n.locale();
     return [...counts.entries()]
       .map(([category, count]) => ({ category, count, hidden: hidden.has(category) }))
-      .sort((a, b) => POI_LABEL[a.category].localeCompare(POI_LABEL[b.category]));
+      .sort((a, b) => labels[a.category].localeCompare(labels[b.category], locale));
   });
 
   readonly visiblePois = computed(() => {

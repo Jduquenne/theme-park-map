@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Gassin",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1968,
@@ -16,6 +16,9 @@
     "year": null
   },
   "logo": "logos/azur-park.jpg",
-  "description": "A seasonal amusement park on the Gulf of Saint-Tropez, operating since 1968 and long known as Luna Park.",
+  "description": {
+    "en": "A seasonal amusement park on the Gulf of Saint-Tropez, operating since 1968 and long known as Luna Park.",
+    "fr": "Parc d'attractions saisonnier sur le golfe de Saint-Tropez, en activité depuis 1968 et longtemps connu sous le nom de Luna Park."
+  },
   "maps": []
 }

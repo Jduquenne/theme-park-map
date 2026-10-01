@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import {
   HistoricalMap,
+  LocalizedText,
   Park,
   PixelPoint,
   PoiCategory,
@@ -8,7 +9,8 @@ import {
   YearRange,
 } from '../../core/models';
 import { LeafletMap } from '../map-viewer/leaflet-map';
-import { POI_LABEL } from '../map-viewer/poi/poi-style';
+import { I18n } from '../../core/i18n/i18n';
+import { LOCALES, Locale } from '../../core/i18n/locale';
 
 const CATEGORIES: PoiCategory[] = [
   'attraction',
@@ -35,10 +37,13 @@ function nextPoiId(): string {
   templateUrl: './poi-editor.html',
 })
 export class PoiEditor {
+  protected readonly i18n = inject(I18n);
+
   readonly slug = input.required<string>();
 
   protected readonly categories = CATEGORIES;
-  protected readonly categoryLabel = POI_LABEL;
+  protected readonly locales = LOCALES;
+  protected readonly categoryLabel = computed(() => this.i18n.t().poiCategory);
   protected readonly fileSystemAccessSupported = 'showOpenFilePicker' in window;
 
   protected readonly park = signal<Park | null>(null);
@@ -168,7 +173,7 @@ export class PoiEditor {
     }
     if (current.pointsOfInterest.length > 0) {
       const confirmed = window.confirm(
-        `Replace the ${current.pointsOfInterest.length} attraction(s) already on "${current.title}" with a copy of the ${source.pointsOfInterest.length} from "${source.title}"?`,
+        `Replace the ${current.pointsOfInterest.length} attraction(s) already on "${this.i18n.localize(current.title)}" with a copy of the ${source.pointsOfInterest.length} from "${this.i18n.localize(source.title)}"?`,
       );
       if (!confirmed) {
         return;
@@ -222,11 +227,16 @@ export class PoiEditor {
     }
   }
 
-  updateDescription(description: string): void {
+  updateDescription(locale: Locale, value: string): void {
     const poi = this.selectedPoi();
-    if (poi) {
-      this.updatePoi(poi.id, { description: description.trim() === '' ? null : description });
+    if (!poi) {
+      return;
     }
+    const entries = Object.entries({ ...poi.description, [locale]: value.trim() }).filter(
+      ([, text]) => text !== '',
+    );
+    const description: LocalizedText | null = entries.length ? Object.fromEntries(entries) : null;
+    this.updatePoi(poi.id, { description });
   }
 
   updateOperatingFrom(value: string): void {

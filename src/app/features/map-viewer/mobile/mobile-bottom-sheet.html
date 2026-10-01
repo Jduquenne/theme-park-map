@@ -1,7 +1,7 @@
 <div
   #sheet
   role="region"
-  aria-label="Points of interest"
+  [attr.aria-label]="t().poi.title"
   class="fixed inset-x-0 bottom-0 z-[1200] flex h-[85dvh] flex-col rounded-t-2xl border-t border-line bg-card shadow-[0_-6px_28px_rgb(40_38_33/0.22)] will-change-transform"
   [style.transform]="transform()"
   [style.transition]="transition()"
@@ -11,7 +11,7 @@
     role="button"
     tabindex="0"
     [attr.aria-expanded]="expanded()"
-    aria-label="Expand or collapse the points of interest list"
+    [attr.aria-label]="t().poi.toggleSheet"
     (pointerdown)="onPointerDown($event)"
     (pointermove)="onPointerMove($event)"
     (pointerup)="onPointerUp()"
@@ -23,7 +23,7 @@
 
     <div class="w-full space-y-2 px-4 pb-3">
       <h3 class="font-display text-sm font-semibold uppercase tracking-[0.12em] text-ink">
-        Points of interest
+        {{ t().poi.title }}
         @if (year() !== null) {
           <span class="font-normal text-ink-soft">· {{ year() }}</span>
         }

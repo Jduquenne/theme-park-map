@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Cherbourg-en-Cotentin",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 2002,
@@ -16,6 +16,9 @@
     "year": 2024
   },
   "logo": null,
-  "description": "A maritime museum and theme park in Cherbourg, opened in 2002 and home to the submarine Le Redoutable.",
+  "description": {
+    "en": "A maritime museum and theme park in Cherbourg, opened in 2002 and home to the submarine Le Redoutable.",
+    "fr": "Musée et parc à thème maritime à Cherbourg, ouvert en 2002, qui abrite le sous-marin Le Redoutable."
+  },
   "maps": []
 }

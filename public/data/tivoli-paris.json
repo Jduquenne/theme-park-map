@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Paris",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1730,
@@ -13,6 +13,9 @@
   },
   "attendance": null,
   "logo": null,
-  "description": "An 18th-century pleasure garden in Paris with rides and attractions, open in various forms from 1730 to 1842.",
+  "description": {
+    "en": "An 18th-century pleasure garden in Paris with rides and attractions, open in various forms from 1730 to 1842.",
+    "fr": "Jardin d'agrément parisien du XVIIIe siècle doté de manèges et d'attractions, ouvert sous diverses formes de 1730 à 1842."
+  },
   "maps": []
 }

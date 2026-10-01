@@ -26,6 +26,7 @@ L'ambition est de couvrir tous les parcs du monde. Le catalogue démarre avec **
 - **Attractions** : pins par catégorie, liste, fiche détaillée, filtre par catégorie.
 - **Liens partageables** : plan, année, attraction sélectionnée et filtres sont stockés dans l'URL.
 - **Mobile d'abord** : *bottom sheet* déplaçable au doigt, contrôles flottants, menu plein écran, zones sûres (encoche) prises en compte.
+- **Bilingue FR / EN** : langue du navigateur détectée au premier passage, sélecteur mémorisé, contenus des parcs traduits.
 - **Accessibilité** : navigation clavier, focus visible, rôles ARIA, respect de `prefers-reduced-motion`.
 
 ## Stack technique
@@ -38,6 +39,7 @@ L'ambition est de couvrir tous les parcs du monde. Le catalogue démarre avec **
 | Cartographie | [Leaflet](https://leafletjs.com) en `L.CRS.Simple` : le plan est une image raster, pas une carte géographique |
 | Style | [Tailwind CSS v4](https://tailwindcss.com) (tokens dans un bloc `@theme`), Oswald et Inter |
 | Langage | TypeScript strict, aucun `any` |
+| i18n | Maison : dictionnaires TypeScript typés + signal de langue, formatage via `Intl` (nombres, noms de pays) |
 | Données | Fichiers JSON statiques dans `public/data/`, sans backend |
 | Hébergement | GitHub Pages, déployé par GitHub Actions |
 
@@ -47,6 +49,7 @@ L'ambition est de couvrir tous les parcs du monde. Le catalogue démarre avec **
 - **Organisation par domaine** : `core/` (services, modèles), `shared/` (utilitaires et UI réutilisables), `features/` (`park-index`, `welcome`, `map-viewer`, `poi-editor`).
 - **Requêtes** : `HttpClient` encapsulé dans un `ParkRepository`, états de chargement modélisés par un type `RequestState<T>` (loading / error / loaded).
 - **État dans l'URL** : un helper `queryParamsState` synchronise des signals avec les query params, avec *debounce* et `replaceUrl`.
+- **i18n typée** : `core/i18n/translations/en.ts` sert de référence ; `fr.ts` doit avoir exactement les mêmes clés, sinon le build échoue. Les templates lisent `t().section.cle`, et tout se met à jour sans rechargement au changement de langue.
 - **Gestes codés à la main** : le *bottom sheet* mobile repose sur les Pointer Events, sans bibliothèque.
 
 ## Démarrer en local
@@ -78,6 +81,8 @@ public/
 ```
 
 Un plan est déclaré dans le JSON du parc avec son image (chemin et dimensions réelles en pixels), sa période et sa source. Ses attractions (`pointsOfInterest`) portent une position en pixels sur l'image, une catégorie et leurs années d'existence.
+
+Les textes libres (description d'un parc, titre d'un plan, description d'une attraction) sont localisés : `{ "en": "…", "fr": "…" }`. Une langue manquante retombe sur l'anglais. Les noms propres (parcs, attractions, villes) restent uniques, et le pays est un code ISO (`"countryCode": "FR"`) dont le nom est traduit automatiquement.
 
 ## Éditeur d'attractions (dev uniquement)
 

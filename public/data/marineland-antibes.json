@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Antibes",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1970,
@@ -16,6 +16,9 @@
     "year": 2024
   },
   "logo": null,
-  "description": "A marine mammal park and aquarium on the Côte d'Azur, opened in 1970 and permanently closed in January 2025.",
+  "description": {
+    "en": "A marine mammal park and aquarium on the Côte d'Azur, opened in 1970 and permanently closed in January 2025.",
+    "fr": "Parc de mammifères marins et aquarium sur la Côte d'Azur, ouvert en 1970 et définitivement fermé en janvier 2025."
+  },
   "maps": []
 }

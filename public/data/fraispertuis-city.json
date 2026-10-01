@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Jeanménil",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1966,
@@ -16,6 +16,9 @@
     "year": 2024
   },
   "logo": "logos/fraispertuis-city.jpg",
-  "description": "A Western-themed family park in the Vosges, opened in 1966.",
+  "description": {
+    "en": "A Western-themed family park in the Vosges, opened in 1966.",
+    "fr": "Parc familial sur le thème du Far West dans les Vosges, ouvert en 1966."
+  },
   "maps": []
 }

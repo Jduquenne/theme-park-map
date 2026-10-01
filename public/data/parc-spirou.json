@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Monteux",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 2018,
@@ -16,11 +16,17 @@
     "year": 2023
   },
   "logo": "logos/parc-spirou.png",
-  "description": "A theme park based on the Spirou comics, opened in 2018 in the Vaucluse.",
+  "description": {
+    "en": "A theme park based on the Spirou comics, opened in 2018 in the Vaucluse.",
+    "fr": "Parc à thème inspiré de la bande dessinée Spirou, ouvert en 2018 dans le Vaucluse."
+  },
   "maps": [
     {
       "id": "map-2026",
-      "title": "2026",
+      "title": {
+        "en": "2026",
+        "fr": "2026"
+      },
       "period": {
         "from": 2026,
         "to": null

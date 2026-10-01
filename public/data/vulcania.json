@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Saint-Ours-les-Roches",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 2002,
@@ -16,6 +16,9 @@
     "year": 2024
   },
   "logo": "logos/vulcania.png",
-  "description": "A volcano and earth-sciences theme park in the Auvergne, opened in 2002.",
+  "description": {
+    "en": "A volcano and earth-sciences theme park in the Auvergne, opened in 2002.",
+    "fr": "Parc à thème consacré aux volcans et aux sciences de la Terre en Auvergne, ouvert en 2002."
+  },
   "maps": []
 }

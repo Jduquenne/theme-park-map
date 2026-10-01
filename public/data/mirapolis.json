@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Courdimanche",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1987,
@@ -13,6 +13,9 @@
   },
   "attendance": null,
   "logo": "logos/mirapolis.png",
-  "description": "A short-lived theme park in the Val-d'Oise based on French fairy tales and fables, open from 1987 to 1991.",
+  "description": {
+    "en": "A short-lived theme park in the Val-d'Oise based on French fairy tales and fables, open from 1987 to 1991.",
+    "fr": "Éphémère parc à thème du Val-d'Oise inspiré des contes et fables français, ouvert de 1987 à 1991."
+  },
   "maps": []
 }

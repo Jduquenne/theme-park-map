@@ -1,3 +1,4 @@
+import { LocalizedText } from './localized-text';
 import { PointOfInterest } from './point-of-interest';
 import { YearRange } from './year-range';
 
@@ -9,7 +10,7 @@ export interface MapImage {
 
 export interface HistoricalMap {
   id: string;
-  title: string;
+  title: LocalizedText;
   period: YearRange;
   image: MapImage;
   source: string | null;

@@ -5,7 +5,7 @@
   "resort": null,
   "location": {
     "city": "Fresnes",
-    "country": "France"
+    "countryCode": "FR"
   },
   "operating": {
     "from": 1999,
@@ -13,6 +13,9 @@
   },
   "attendance": null,
   "logo": null,
-  "description": "A Playmobil-branded indoor and outdoor play park in the Val-de-Marne, open from 1999 to 2022.",
+  "description": {
+    "en": "A Playmobil-branded indoor and outdoor play park in the Val-de-Marne, open from 1999 to 2022.",
+    "fr": "Parc de jeux couvert et extérieur aux couleurs de Playmobil dans le Val-de-Marne, ouvert de 1999 à 2022."
+  },
   "maps": []
 }

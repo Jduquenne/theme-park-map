@@ -3,11 +3,13 @@ import {
   Component,
   ElementRef,
   effect,
+  inject,
   input,
   output,
   viewChild,
 } from '@angular/core';
 import { PoiCategory, PointOfInterest } from '../../../core/models';
+import { I18n } from '../../../core/i18n/i18n';
 import { PoiLegend, PoiLegendEntry } from './poi-legend';
 import { PoiRows } from './poi-rows';
 
@@ -19,6 +21,8 @@ import { PoiRows } from './poi-rows';
   templateUrl: './poi-list.html',
 })
 export class PoiList {
+  protected readonly t = inject(I18n).t;
+
   readonly pois = input.required<readonly PointOfInterest[]>();
   readonly legend = input.required<readonly PoiLegendEntry[]>();
   readonly year = input<number | null>(null);
